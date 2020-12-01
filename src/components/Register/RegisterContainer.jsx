@@ -1,0 +1,49 @@
+import React, { useContext, useState } from "react";
+
+import participantService from "services/ParticipantService.js";
+
+import Register from "components/Register/Register";
+
+const RegisterContainer = (props) => {
+	const [newRole, setNewRole] = useState("");
+	const [newEmail, setNewEmail] = useState("");
+	const [newPassword, setNewPassword] = useState("");
+
+	const handleAddParticipant = (event) => {
+		event.preventDefault();
+		participantService.addParticipant(newRole, newEmail, newPassword);
+		setNewRole("");
+		setNewEmail("");
+		setNewPassword("");
+	};
+
+	const handleRoleChange = (event) => {
+		event.preventDefault();
+		console.log("role change:", event.target.value);
+		setNewRole(event.target.value);
+	};
+
+	const handleEmailChange = (event) => {
+		event.preventDefault();
+		setNewEmail(event.target.value);
+	};
+
+	const handlePasswordChange = (event) => {
+		event.preventDefault();
+		setNewPassword(event.target.value);
+	};
+
+	return (
+		<Register
+			handleAddParticipant={handleAddParticipant}
+			handleRoleChange={handleRoleChange}
+			handleEmailChange={handleEmailChange}
+			handlePasswordChange={handlePasswordChange}
+			newRole={newRole}
+			newEmail={newEmail}
+			newPassword={newPassword}
+		/>
+	);
+};
+
+export default RegisterContainer;
