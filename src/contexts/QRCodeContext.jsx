@@ -5,6 +5,7 @@ import participantService from "services/ParticipantService.js";
 const Context = React.createContext(null);
 
 const ProviderWrapper = (props) => {
+	
 	const addParticipant = (role, email, password) => {
 		//TO DO traitement différent selon rôle?
 		//TO DO Bcrypt
