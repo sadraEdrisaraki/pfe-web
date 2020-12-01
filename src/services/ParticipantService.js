@@ -1,8 +1,6 @@
 import axios from "axios";
 
-const { HOSTNAME, PORT } = require("../utils/config");
-
-const baseUrl = HOSTNAME + PORT;
+const baseUrl = 'http://localhost:3000';
 // TODO Rajouter API
 
 const login = (newObject) => {
