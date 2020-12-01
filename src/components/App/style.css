@@ -1,0 +1,18 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+body{
+    background: linear-gradient(to right, rgb(101, 153, 153), rgb(244, 121, 31));
+}
+#root{
+    height: 100%;
+    width: 100%;
+}
+.app{
+    height: 100%;
+    width: 100%;
+}
