@@ -1,7 +1,13 @@
 import React from "react";
 
-const QRCodeContext = () => {
-	return <div></div>;
+const Context = React.createContext(null);
+
+const ProviderWrapper = (props) => {
+	const exposedValue = {};
+	return (
+		<Context.Provider value={exposedValue}>{props.children}</Context.Provider>
+	);
 };
 
-export default QRCodeContext;
+export { Context, ProviderWrapper };
+export default Context;
