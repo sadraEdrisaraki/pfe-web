@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 
+import { Link } from "react-router-dom";
+
 import QRCodeContext from "../../contexts/QRCodeContext";
 
 const Login = () => {
@@ -40,8 +42,11 @@ const Login = () => {
 						onChange={handlePasswordChange}
 					/>
 				</div>
-					<button type="submit">Se connecter</button>
+				<button type="submit">Se connecter</button>
 			</form>
+			<button type="submit">
+				<Link to="/">S'inscrire</Link>
+			</button>
 		</div>
 	);
 };
