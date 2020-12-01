@@ -45,7 +45,7 @@ const Login = () => {
 				<button type="submit">Se connecter</button>
 			</form>
 			<button type="submit">
-				<Link to="/">S'inscrire</Link>
+				<Link to="/register">S'inscrire</Link>
 			</button>
 		</div>
 	);
