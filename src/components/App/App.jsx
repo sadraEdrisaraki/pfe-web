@@ -1,13 +1,13 @@
 import React from "react";
 
-import Footer from "components/Footer/Footer";
-import Navbar from "components/Navbar/Navbar";
+import Register from "components/Register/Register";
+import Login from "components/Login/Login";
 
 const App = () => {
 	return (
 		<div>
-			<Navbar></Navbar>
-			<Footer></Footer>
+			<Register></Register>
+			<Login></Login>
 		</div>
 	)
 }
