@@ -7,7 +7,7 @@ import App from "./App";
 const AppContainer = () => {
 	return (
 		<QRCodeProvider>
-			<App />;
+			<App />
 		</QRCodeProvider>
 	);
 };
