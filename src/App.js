@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import * as data from "";
 
 function App() {
+
+  const stategString = data.test;
+
   return (
     <div className="App">
       <header className="App-header">
