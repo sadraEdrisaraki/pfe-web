@@ -9,9 +9,22 @@ const RegisterContainer = (props) => {
 	const [newEmail, setNewEmail] = useState("");
 	const [newPassword, setNewPassword] = useState("");
 
+    const addParticipant = (role, email, password) => {
+		//TO DO traitement différent selon rôle?
+		//TO DO Bcrypt
+		const payload = {
+			email: email,
+			password: password,
+		};
+		participantService
+			.register(payload)
+			.then((response) => console.log(response));
+		// TO DO gestion erreurs -> handler middleware?
+	};
+
 	const handleAddParticipant = (event) => {
 		event.preventDefault();
-		participantService.addParticipant(newRole, newEmail, newPassword);
+		addParticipant(newRole, newEmail, newPassword);
 		setNewRole("");
 		setNewEmail("");
 		setNewPassword("");
@@ -31,8 +44,8 @@ const RegisterContainer = (props) => {
 	const handlePasswordChange = (event) => {
 		event.preventDefault();
 		setNewPassword(event.target.value);
-	};
-
+    };
+    
 	return (
 		<Register
 			handleAddParticipant={handleAddParticipant}

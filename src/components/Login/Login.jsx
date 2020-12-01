@@ -2,29 +2,7 @@ import React, { useContext, useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import QRCodeContext from "../../contexts/QRCodeContext";
-
-const Login = () => {
-	const [newEmail, setNewEmail] = useState("");
-	const [newPassword, setNewPassword] = useState("");
-	const { login } = useContext(QRCodeContext);
-
-	const handleLogin = (event) => {
-		event.preventDefault();
-		login(newEmail, newPassword);
-		setNewEmail("");
-		setNewPassword("");
-	};
-
-	const handleEmailChange = (event) => {
-		event.preventDefault();
-		setNewEmail(event.target.value);
-	};
-
-	const handlePasswordChange = (event) => {
-		event.preventDefault();
-		setNewPassword(event.target.value);
-	};
+const Login = ({handleLogin,handleEmailChange,handlePasswordChange,newEmail,newPassword}) => {
 
 	return (
 		<div>
