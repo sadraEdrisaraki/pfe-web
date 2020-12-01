@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
 
-import AppContainer from "components/App/AppContainer";
+import AppContainer from "./components/App/AppContainer";
 
 const documentElem = document.getElementById("root");
 const appProps = {};
