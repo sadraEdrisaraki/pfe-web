@@ -70,7 +70,7 @@ const Register = () => {
 				<button type="submit">S'inscrire</button>
 			</form>
 			<button type="submit">
-				<Link to="/login">Se connecter</Link>
+				<Link to="/">Se connecter</Link>
 			</button>
 		</div>
 	);
