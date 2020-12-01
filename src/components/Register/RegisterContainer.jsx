@@ -11,7 +11,6 @@ const RegisterContainer = (props) => {
 
     const addParticipant = (role, email, password) => {
 		//TO DO traitement différent selon rôle?
-		//TO DO Bcrypt
 		const payload = {
 			email: email,
 			password: password,
@@ -28,6 +27,7 @@ const RegisterContainer = (props) => {
 		setNewRole("");
 		setNewEmail("");
 		setNewPassword("");
+		console.log(newRole, newEmail, newPassword)
 	};
 
 	const handleRoleChange = (event) => {

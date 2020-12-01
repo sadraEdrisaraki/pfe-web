@@ -9,7 +9,6 @@ const LoginContainer = () => {
 	const [newPassword, setNewPassword] = useState("");
 
     const login = (email, password) => {
-		//TO DO Bcrypt
 		const payload = {
 			email: email,
 			password: password,
