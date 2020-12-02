@@ -23,6 +23,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     transition: 0.5s;
+    filter:blur(8px)
 }
 
 .est-qrhistory-btn-bg{
@@ -36,6 +37,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     transition: 0.5s;
+    filter:blur(8px)
 }
 
 .est-generateqr-title{
