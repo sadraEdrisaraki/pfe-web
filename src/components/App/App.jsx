@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css"
+import "./style.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import RegisterContainer from "components/Register/RegisterContainer";
@@ -14,7 +14,7 @@ const App = () => {
 						<RegisterContainer />
 					</Route>
 					<Route path="/">
-						<LoginContainer />
+					<LoginContainer />
 					</Route>
 				</Switch>
 			</Router>

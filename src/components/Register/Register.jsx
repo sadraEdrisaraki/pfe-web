@@ -1,50 +1,28 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import QRCodeContext from "../../contexts/QRCodeContext";
-import "./style.css"
+import "./style.css";
 
-const Register = () => {
-	const [newRole, setNewRole] = useState("medecin");
-	const [newEmail, setNewEmail] = useState("");
-	const [newPassword, setNewPassword] = useState("");
-	const { addParticipant } = useContext(QRCodeContext);
-
-	const handleAddParticipant = (event) => {
-		event.preventDefault();
-		addParticipant(newRole, newEmail, newPassword);
-		setNewRole("");
-		setNewEmail("");
-		setNewPassword("");
-	};
-
-	const handleRoleChange = (event) => {
-		console.log("role change:", event.target.value);
-		setNewRole(event.target.value);
-	};
-
-	const handleEmailChange = (event) => {
-		event.preventDefault();
-		setNewEmail(event.target.value);
-	};
-
-	const handlePasswordChange = (event) => {
-		event.preventDefault();
-		setNewPassword(event.target.value);
-	};
-
-
+const Register = ({
+	handleAddParticipant,
+	handleRoleChange,
+	handleEmailChange,
+	handlePasswordChange,
+	newRole,
+	newEmail,
+	newPassword,
+}) => {
 	return (
 		<div className="register-page">
 			<div className="register-container">
 				<h1>S'inscrire</h1>
 				<form onSubmit={handleAddParticipant}>
 					<div className="mail">
-						<input 
+						<input
 							className="mail-input"
-							type="text" 
-							value={newEmail} 
-							onChange={handleEmailChange} 
+							type="text"
+							value={newEmail}
+							onChange={handleEmailChange}
 							placeholder="adresse mail..."
 						/>
 					</div>
@@ -57,7 +35,9 @@ const Register = () => {
 							placeholder="mot-de-passe..."
 						/>
 					</div>
-					<button className="btn-register" type="submit">S'inscrire</button>
+					<button className="btn-register" type="submit">
+						S'inscrire
+					</button>
 					<h4>Êtes-vous</h4>
 					<div>
 						<input
@@ -78,7 +58,7 @@ const Register = () => {
 						Établissement
 					</div>
 				</form>
-				<br/>
+				<br />
 				<button type="submit">
 					<Link to="/">Se connecter</Link>
 				</button>
