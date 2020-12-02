@@ -43,7 +43,7 @@ const LoginContainer = () => {
 
 	if(redirectPath === "establishment"){
 		setRedirectPath("")
-		history.push('/register')
+		history.push('/establishment')
 		return <Redirect to="/register"/>
 	}
 

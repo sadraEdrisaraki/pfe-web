@@ -5,6 +5,7 @@ import "./style.css";
 
 import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
+import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage"
 
 const App = () => {
 	return (
@@ -14,8 +15,11 @@ const App = () => {
 					<Route path="/register">
 						<RegisterContainer />
 					</Route>
+					<Route path="/establishment">
+						<EstablishmentPage />
+					</Route>
 					<Route path="/">
-					<LoginContainer />
+						<LoginContainer />
 					</Route>
 				</Switch>
 			</Router>
