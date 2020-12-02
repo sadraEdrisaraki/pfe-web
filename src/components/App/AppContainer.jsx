@@ -4,6 +4,7 @@ import App from "./App";
 
 const AppContainer = () => {
 	console.log(process.env.REACT_APP_API_ENDPOINT)
+	
 	return (
 		<QRCodeProvider>
 			<App />

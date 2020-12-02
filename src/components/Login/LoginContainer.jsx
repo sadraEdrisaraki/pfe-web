@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import {Redirect, useHistory} from 'react-router-dom'
 
 import participantService from "services/ParticipantService.js";
 
@@ -7,19 +8,24 @@ import Login from "components/Login/Login";
 const LoginContainer = () => {
 	const [newEmail, setNewEmail] = useState("");
 	const [newPassword, setNewPassword] = useState("");
+	const [redirectPath, setRedirectPath] = useState("")
+	let history = useHistory()
 
     const login = (email, password) => {
 		const payload = {
 			email: email,
 			password: password,
 		};
-		participantService.login(payload).then((response) => console.log(response));
+		participantService.login(payload).then((response) => {
+			console.log(response);
+		})
 		// TO DO gestion erreurs -> handler middleware?
     };
     
 	const handleLogin = (event) => {
-		event.preventDefault();
-		login(newEmail, newPassword);
+		event.preventDefault()
+		// login(newEmail, newPassword);
+		setRedirectPath("establishment")
 		setNewEmail("");
 		setNewPassword("");
 	};
@@ -34,6 +40,13 @@ const LoginContainer = () => {
 		setNewPassword(event.target.value);
 	};
 
+	if(redirectPath === "establishment"){
+		setRedirectPath("")
+		history.push('/register')
+		return <Redirect to="/register"/>
+	}
+
+	// TODO verifier le role afin de redirect correctement
 	return (
         <Login handleLogin={handleLogin} handleEmailChange={handleEmailChange} handlePasswordChange={handlePasswordChange} newEmail={newEmail} newPassword={ newPassword}/>
 	);

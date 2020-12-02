@@ -9,7 +9,7 @@ const Login = ({handleLogin,handleEmailChange,handlePasswordChange,newEmail,newP
 		<div className="login-page">
 			<div className="login-container">
 				<h1>Se connecter</h1>
-				<form onSubmit={handleLogin}>
+				<form>
 					<div>
 						Email
 						<input type="text" value={newEmail} onChange={handleEmailChange} />
@@ -22,13 +22,12 @@ const Login = ({handleLogin,handleEmailChange,handlePasswordChange,newEmail,newP
 							onChange={handlePasswordChange}
 						/>
 					</div>
-					<button type="submit">Se connecter</button>
+					<button onClick={handleLogin}>Se connecter</button>
 				</form>
 				<button type="submit">
 					<Link to="/register">S'inscrire</Link>
 				</button>
 			</div>
-			
 		</div>
 	);
 };
