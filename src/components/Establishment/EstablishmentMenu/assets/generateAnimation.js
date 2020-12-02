@@ -4,9 +4,13 @@ const generateAnimationZoomIn = () => {
     var btn = document.getElementsByClassName("est-generateqr-btn")[0]
     var bg = document.getElementsByClassName("est-generateqr-btn-bg")[0]
     var title = document.getElementsByClassName("est-generateqr-title")[0]
+    // @ts-ignore
     bg.style.filter = "blur(8px)"
+    // @ts-ignore
     bg.style.transform = "scale(1.2)"
+    // @ts-ignore
     title.style.top = "70%"
+    // @ts-ignore
     title.style.textDecoration= "underline";
     animationZoomOut(btn, bg , title)
 }

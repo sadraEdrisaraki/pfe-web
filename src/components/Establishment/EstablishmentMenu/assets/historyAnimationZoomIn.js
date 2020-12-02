@@ -1,3 +1,4 @@
+// @ts-nocheck
 const generateAnimationZoomIn = () => {
     var btn = document.getElementsByClassName("est-qrhistory-btn")[0]
     var bg = document.getElementsByClassName("est-qrhistory-btn-bg")[0]
