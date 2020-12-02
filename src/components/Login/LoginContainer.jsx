@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import participantService from "services/ParticipantService.js";
 
@@ -14,7 +14,9 @@ const LoginContainer = () => {
 			password: password,
 		};
 		participantService.login(payload).then((response) => console.log(response));
+		localStorage.setItem("testLocal","testdatainlocalstorage");
 		// TO DO gestion erreurs -> handler middleware?
+		// Localstorage
     };
     
 	const handleLogin = (event) => {
@@ -35,7 +37,7 @@ const LoginContainer = () => {
 	};
 
 	return (
-        <Login handleLogin={handleLogin} handleEmailChange={handleEmailChange} handlePasswordChange={handlePasswordChange} newEmail={newEmail} newPassword={ newPassword}/>
+        <Login handleLogin={handleLogin} handleEmailChange={handleEmailChange} handlePasswordChange={handlePasswordChange} newEmail={newEmail} newPassword={newPassword}/>
 	);
 };
 

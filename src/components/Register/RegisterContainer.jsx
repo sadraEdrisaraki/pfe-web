@@ -5,7 +5,7 @@ import participantService from "services/ParticipantService.js";
 import Register from "components/Register/Register";
 
 const RegisterContainer = (props) => {
-	const [newRole, setNewRole] = useState("");
+	const [newRole, setNewRole] = useState("medecin");
 	const [newEmail, setNewEmail] = useState("");
 	const [newPassword, setNewPassword] = useState("");
 
