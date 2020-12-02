@@ -2,8 +2,8 @@ import React from "react";
 import "./style.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Register from "components/Register/Register";
-import Login from "components/Login/Login";
+import RegisterContainer from "components/Register/RegisterContainer";
+import LoginContainer from "components/Login/LoginContainer";
 
 const App = () => {
 	return (
@@ -11,10 +11,10 @@ const App = () => {
 			<Router>
 				<Switch>
 					<Route path="/register">
-						<Register />
+						<RegisterContainer />
 					</Route>
 					<Route path="/">
-						<Login />
+						<LoginContainer />
 					</Route>
 				</Switch>
 			</Router>

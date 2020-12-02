@@ -33,6 +33,7 @@ const Register = () => {
 		setNewPassword(event.target.value);
 	};
 
+
 	return (
 		<div className="register-page">
 			<div className="register-container">
