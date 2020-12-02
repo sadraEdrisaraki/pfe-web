@@ -5,7 +5,7 @@ import participantService from "services/ParticipantService.js";
 import Register from "components/Register/Register";
 
 const RegisterContainer = (props) => {
-	const [newRole, setNewRole] = useState("");
+	const [newRole, setNewRole] = useState("medecin");
 	const [newEmail, setNewEmail] = useState("");
 	const [newPassword, setNewPassword] = useState("");
 
@@ -31,7 +31,6 @@ const RegisterContainer = (props) => {
 	};
 
 	const handleRoleChange = (event) => {
-		event.preventDefault();
 		console.log("role change:", event.target.value);
 		setNewRole(event.target.value);
 	};

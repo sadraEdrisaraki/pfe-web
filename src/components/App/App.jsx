@@ -1,6 +1,7 @@
 import React from "react";
-import "./style.css"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import "./style.css";
 
 import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
@@ -14,10 +15,11 @@ const App = () => {
 						<RegisterContainer />
 					</Route>
 					<Route path="/">
-						<LoginContainer />
+					<LoginContainer />
 					</Route>
 				</Switch>
 			</Router>
+			
 		</div>
 	);
 };

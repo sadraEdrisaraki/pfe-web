@@ -13,4 +13,4 @@ const register = (newObject) => {
 	return request.then((response) => response.data);
 };
 
-export default { login, register };
+export default {login, register };
