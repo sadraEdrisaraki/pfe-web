@@ -23,11 +23,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     transition: 0.5s;
-    
-    -webkit-backface-visibility: hidden; 
-    -ms-transform: translateZ(0); /* IE 9 */
-    -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
-    transform: translateZ(0);
 }
 
 .est-qrhistory-btn-bg{
@@ -41,11 +36,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     transition: 0.5s;
-    
-    -webkit-backface-visibility: hidden; 
-    -ms-transform: translateZ(0); /* IE 9 */
-    -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
-    transform: translateZ(0);
 }
 
 .est-generateqr-title{
