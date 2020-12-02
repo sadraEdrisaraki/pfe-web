@@ -31,7 +31,6 @@ const RegisterContainer = (props) => {
 	};
 
 	const handleRoleChange = (event) => {
-		event.preventDefault();
 		console.log("role change:", event.target.value);
 		setNewRole(event.target.value);
 	};
