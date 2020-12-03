@@ -1,9 +1,12 @@
-import React , {useState, useEffect} from "react"
-import "./style.css"
-import QRcode from "qrcode-react"
+import React , {useState, useEffect, useRef} from "react"
+import {v4 as uuidv4} from "uuid"
+import { useReactToPrint }  from "react-to-print"
+
 import qrOverAnimation from "./assets/qrOverAnimation.js"
 import qrOutAnimation from "./assets/qrOutAnimation.js"
-import {v4 as uuidv4} from "uuid"
+import "./style.css"
+
+import QRcodeItem from "components/SharedComponents/QRCodeItem/QRCodeItem"
 
 const EstablishmentGenerateQR = ({createQR}) => {
 
@@ -28,16 +31,24 @@ const EstablishmentGenerateQR = ({createQR}) => {
 
     const handleClick = () => {
         createQR(id,name,description)
+        localStorage.setItem("id",id)
         let tempId = uuidv4()
         setId(tempId)
         setName("")
         setDescription("")
+        handlePrint()
+        
     }
+
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    })
 
     return (
         <div className="generate-form-container">
             <div className="qrcode-generated" onClick={handleClick} onMouseOver={qrOverAnimation} onMouseOut={qrOutAnimation}>
-                <QRcode includeMargin="true" value={id} className="qrcode"/>
+                <QRcodeItem ref={componentRef} data={id} />
             </div>
             
             <div className="form-container">
