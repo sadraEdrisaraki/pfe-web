@@ -12,8 +12,6 @@ import Test from "components/Test/Test";
 const App = () => {
 	return (
 		<div className="app">
-			<Test/>
-			{ localStorage.getItem("token") !== null ? <Navbar /> : ""}
 			<Router>
 			<Switch>
 				<Route path="/register">
