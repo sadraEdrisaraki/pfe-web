@@ -4,6 +4,7 @@ html, body {
     margin: 0px;
     padding: 0px;
     overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
 }
 body{
     background: linear-gradient(to right, rgb(101, 153, 153), rgb(244, 121, 31));

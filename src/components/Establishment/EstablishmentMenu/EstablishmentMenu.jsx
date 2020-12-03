@@ -3,14 +3,14 @@ import "./style.css"
 import generateAnimationZoomIn from "./assets/generateAnimation.js"
 import historyAnimationZoomIn from "./assets/historyAnimationZoomIn.js"
 import clickGenerateAnimation from "./assets/clickGenerateAnimation.js"
-import EstablishmentGenerateQR from "components/Establishment/EstablishmentMenu/EstablishmentGenerateQR/EstablishmentGenerateQR.jsx"
+import EstablishmentGenerateQRContainer from "components/Establishment/EstablishmentMenu/EstablishmentGenerateQR/EstablishmentGenerateQRContainer.jsx"
 
 const EstablishmentMenu = () => {
 
 
     return (
         <div className="establishment-menu">
-            <EstablishmentGenerateQR/>
+            <EstablishmentGenerateQRContainer/>
             <div className="est-generateqr-btn" onMouseOver={generateAnimationZoomIn} onClick={clickGenerateAnimation}>
                 <div className="est-generateqr-btn-bg"></div>
                 <h2 className="est-generateqr-title">generate qr code</h2>
