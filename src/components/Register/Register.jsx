@@ -50,16 +50,16 @@ const Register = ({
 					<div>
 						<input
 							type="radio"
-							value="medecin"
-							checked={newRole === "medecin"}
+							value="Doctor"
+							checked={newRole === "Doctor"}
 							onChange={handleRoleChange}
 							name="role"
 						/>
 						Médecin
 						<input
 							type="radio"
-							value="etablissement"
-							checked={newRole === "etablissement"}
+							value="Establishment"
+							checked={newRole === "Establishment"}
 							onChange={handleRoleChange}
 							name="role"
 						/>

@@ -25,7 +25,7 @@ const LoginContainer = () => {
     
 	const handleLogin = (event) => {
 		event.preventDefault()
-		// login(newEmail, newPassword);
+		login(newEmail, newPassword);
 		setRedirectPath("establishment")
 		setNewEmail("");
 		setNewPassword("");

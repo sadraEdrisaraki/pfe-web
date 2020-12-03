@@ -6,12 +6,10 @@ import "./style.css";
 import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage";
-import Navbar from "components/Navbar/Navbar";
 
 const App = () => {
 	return (
 		<div className="app">
-			{localStorage.getItem("token") !== null ? <Navbar /> : ""}
 			<Router>
 				<Switch>
 					<Route path="/register">

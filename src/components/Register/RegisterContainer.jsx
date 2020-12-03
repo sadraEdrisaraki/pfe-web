@@ -12,8 +12,9 @@ const RegisterContainer = (props) => {
     const addParticipant = (role, email, password) => {
 		//TO DO traitement différent selon rôle?
 		const payload = {
-			email: email,
-			password: password,
+			login: newEmail,
+			password: newPassword,
+			participant_Type:newRole
 		};
 		participantService
 			.register(payload)
@@ -36,12 +37,10 @@ const RegisterContainer = (props) => {
 	};
 
 	const handleEmailChange = (event) => {
-		event.preventDefault();
 		setNewEmail(event.target.value);
 	};
 
 	const handlePasswordChange = (event) => {
-		event.preventDefault();
 		setNewPassword(event.target.value);
     };
     
