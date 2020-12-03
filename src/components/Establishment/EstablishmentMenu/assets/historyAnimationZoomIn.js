@@ -5,7 +5,7 @@ const generateAnimationZoomIn = () => {
     var title = document.getElementsByClassName("est-qrhistory-title")[0]
     bg.style.filter = "blur(0px)"
     bg.style.transform = "scale(1.2)"
-    title.style.top = "70%"
+    title.style.top = "72%"
     title.style.textDecoration= "underline";
     animationZoomOut(btn, bg , title)
 }
