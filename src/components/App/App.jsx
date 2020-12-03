@@ -11,7 +11,7 @@ import Test from "components/Test/Test";
 const App = () => {
 	return (
 		<div className="app">
-			<Test></Test>
+			<Test/>
 			<Router>
 				<Switch>
 					<Route path="/register">
