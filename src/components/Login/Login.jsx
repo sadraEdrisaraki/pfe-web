@@ -22,6 +22,14 @@ const Login = ({handleLogin,handleEmailChange,handlePasswordChange,newEmail,newP
 							onChange={handlePasswordChange}
 						/>
 					</div>
+					<div>
+						Confirm Password
+						<input
+							type="text"
+							/*value={newPassword}
+							onChange={handlePasswordChange}*/
+						/>
+					</div>
 					<button onClick={handleLogin}>Se connecter</button>
 				</form>
 				<button type="submit">
