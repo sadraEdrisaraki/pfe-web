@@ -5,7 +5,16 @@
     background-color: black;
 }
 
-.est-generateqr-btn, .est-qrhistory-btn{
+.est-generateqr-btn{
+    position: relative;
+    top: 0%;
+    height: 100%;
+    width: 50%;
+    cursor: pointer;
+}
+
+.est-qrhistory-btn{
+    top: 0%;
     height: 100%;
     width: 50%;
     cursor: pointer;
@@ -43,7 +52,7 @@
 .est-generateqr-title{
     position: absolute;
     top: 25%;
-    left: 25%;
+    left: 50%;
     transform: translate(-50% , -50%);
     color: white;
     text-transform: uppercase;
