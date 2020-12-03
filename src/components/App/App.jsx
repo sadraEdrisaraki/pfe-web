@@ -5,28 +5,25 @@ import "./style.css";
 
 import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
-import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage"
-import Navbar from "components/Navbar/Navbar"
-import Test from "components/Test/Test";
+import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage";
 
 const App = () => {
 	return (
 		<div className="app">
 			<Router>
-			<Switch>
-				<Route path="/register">
-					<RegisterContainer />
-				</Route>
-				<Route path="/establishment">
-					<EstablishmentPage />
-				</Route>
-				<Route path="/">
-					<LoginContainer />
-				</Route>
-			</Switch>
-		</Router>
-		
-	</div> 
+				<Switch>
+					<Route path="/register">
+						<RegisterContainer />
+					</Route>
+					<Route path="/establishment">
+						<EstablishmentPage />
+					</Route>
+					<Route path="/">
+						<LoginContainer />
+					</Route>
+				</Switch>
+			</Router>
+		</div>
 	);
 };
 
