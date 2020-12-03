@@ -1,16 +1,17 @@
 import axios from "axios";
 
-const baseUrl = process.env.REACT_APP_API_ENDPOINT;
-// TODO Rajouter API
+const BACKEND_URL = process.env.REACT_APP_API_ENDPOINT;
+const registerAPI = BACKEND_URL + "api/Participants/register";
+const loginAPI = BACKEND_URL + "api/Participants/login";
 
 const login = (newObject) => {
-	const request = axios.post(baseUrl, newObject);
+	const request = axios.post(loginAPI, newObject);
 	return request.then((response) => response.data);
 };
 
 const register = (newObject) => {
-	const request = axios.post(baseUrl, newObject);
+	const request = axios.post(registerAPI, newObject);
 	return request.then((response) => response.data);
 };
 
-export default {login, register };
+export default { login, register };
