@@ -7,7 +7,11 @@ import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage"
 import Test from "components/Test/Test";
-	<div className="app">
+
+const App = () => {
+	return (
+		<div className="app">
+			<Test></Test>
 			<Router>
 				<Switch>
 					<Route path="/register">
@@ -22,11 +26,6 @@ import Test from "components/Test/Test";
 				</Switch>
 			</Router>
 			
-		</div>
-const App = () => {
-	return (
-		<div>
-			<Test></Test>
 		</div>
 	);
 };
