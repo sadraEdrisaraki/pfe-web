@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = process.env.REACT_APP_API_ENDPOINT+'api/citizens';
+const baseUrl = "https://pfe-web-dev.azurewebsites.net/api/citizens";
 
 const getAll = (newObject) => {
 	const request = axios.get(baseUrl);
