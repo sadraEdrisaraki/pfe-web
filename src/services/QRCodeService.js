@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //const baseUrl = "http://localhost:3000/api/citizens";
-const baseUrl = "http://pfe-web-dev.azurewebsites.net/api/citizens";
+const baseUrl = "https://pfe-web-dev.azurewebsites.net/api/citizens";
 //const baseUrl=process.env.REACT_APP_API_ENDPOINT+'api/citizens'
 
 const getAll = (newObject) => {
