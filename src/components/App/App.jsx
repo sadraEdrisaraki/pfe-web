@@ -7,7 +7,6 @@ import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage"
 import Test from "components/Test/Test";
-/*
 	<div className="app">
 			<Router>
 				<Switch>
@@ -24,7 +23,6 @@ import Test from "components/Test/Test";
 			</Router>
 			
 		</div>
-*/
 const App = () => {
 	return (
 		<div>
