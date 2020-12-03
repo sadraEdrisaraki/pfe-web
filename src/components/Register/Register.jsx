@@ -35,6 +35,14 @@ const Register = ({
 							placeholder="mot-de-passe..."
 						/>
 					</div>
+					<div>
+						Confirm Password
+						<input
+							type="text"
+							/*value={newPassword}
+							onChange={handlePasswordChange}*/
+						/>
+					</div>
 					<button className="btn-register" type="submit">
 						S'inscrire
 					</button>
