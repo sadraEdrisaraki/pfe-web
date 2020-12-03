@@ -4,7 +4,7 @@ module.exports = function (app) {
 	app.use(
 		"/api/citizens",
 		createProxyMiddleware({
-			target: "https://pfe-backend-dev.azurewebsites.net",
+			target: process.env.REACT_APP_API_ENDPOINT,
 			changeOrigin: true,
 		})
 	);
