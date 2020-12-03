@@ -1,11 +1,12 @@
 import React from "react";
 
-import participantService from "services/ParticipantService.js";
+import participantService from "services/QRCodeService";
 
 const Test = () => {
-	const test = participantService.getAll();
+	
+	participantService.getAll().then((response)=>{console.log(response)});
 
-	return <div>{test}</div>;
+	return <div></div>;
 };
 
 export default Test;
