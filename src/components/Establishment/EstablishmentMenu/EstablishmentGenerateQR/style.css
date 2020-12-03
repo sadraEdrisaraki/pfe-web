@@ -1,0 +1,7 @@
+.generate-form-container{
+    position: absolute;
+    height: 0%;
+    width: 50%;
+    transition: 0.5s;
+    background-color: aqua;
+}
