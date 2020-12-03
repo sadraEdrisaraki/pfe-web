@@ -6,10 +6,9 @@ import "./style.css";
 import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage"
-
-const App = () => {
-	return (
-		<div className="app">
+import Test from "components/Test/Test";
+/*
+	<div className="app">
 			<Router>
 				<Switch>
 					<Route path="/register">
@@ -24,6 +23,12 @@ const App = () => {
 				</Switch>
 			</Router>
 			
+		</div>
+*/
+const App = () => {
+	return (
+		<div>
+			<Test></Test>
 		</div>
 	);
 };
