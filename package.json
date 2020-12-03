@@ -1,7 +1,6 @@
 {
   "name": "pfe-web",
   "version": "0.1.0",
-  "proxy": "https://pfe-backend-dev.azurewebsites.net",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
@@ -13,6 +12,7 @@
     "dotenv": "^8.2.0",
     "env-cmd": "^10.1.0",
     "http-proxy-middleware": "^1.0.6",
+    "qrious": "^4.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
