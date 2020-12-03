@@ -1,15 +1,15 @@
 import axios from "axios";
 
 const BACKEND_URL = process.env.REACT_APP_API_ENDPOINT;
-const createQrCodeAPI = BACKEND_URL + "api/QrCodes";
+const qrCodeAPI = BACKEND_URL + "api/QrCodes";
 
 const getAll = () => {
-	const request = axios.get(baseUrl);
+	const request = axios.get(qrCodeAPI);
 	return request.then((response) => response.data);
 };
 
 const create = (newObject) => {
-	const request = axios.post(baseUrl, newObject);
+	const request = axios.post(qrCodeAPI, newObject);
 	return request.then((response) => response.data);
 };
 
