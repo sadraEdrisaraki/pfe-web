@@ -15,6 +15,8 @@ const Register = ({
 	setNewEmail,
 	newPassword,
 	setNewPassword,
+	passwordConfirmed,
+	setPasswordConfirmed,
 	errorMessage,
 }) => {
 	return (
@@ -29,11 +31,10 @@ const Register = ({
 						newPassword={newPassword}
 						setNewPassword={setNewPassword}
 					/>
-
 					<Password
 						inputLabel="Confirmer mot de passe"
-						newPassword={newPassword}
-						setNewPassword={setNewPassword}
+						newPassword={passwordConfirmed}
+						setNewPassword={setPasswordConfirmed}
 					/>
 					<button className="btn-register" type="submit">
 						S'inscrire

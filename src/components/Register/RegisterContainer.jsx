@@ -8,6 +8,7 @@ const RegisterContainer = (props) => {
 	const [newRole, setNewRole] = useState("Doctor");
 	const [newEmail, setNewEmail] = useState("");
 	const [newPassword, setNewPassword] = useState("");
+	const [passwordConfirmed, setPasswordConfirmed] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
 
 	const addParticipant = (role, email, password) => {
@@ -19,12 +20,7 @@ const RegisterContainer = (props) => {
 		participantService
 			.register(payload)
 			.then((response) => response)
-			.catch((error) =>
-				setErrorMessage(
-					error.response.data.errors.Login[0] +
-						error.response.data.errors.Password[0]
-				)
-			);
+			.catch((error) => console.log(error.response.data.errors));
 	};
 
 	const handleAddParticipant = (event) => {
@@ -33,6 +29,7 @@ const RegisterContainer = (props) => {
 		setNewRole("");
 		setNewEmail("");
 		setNewPassword("");
+		setPasswordConfirmed("");
 		console.log(newRole, newEmail, newPassword);
 	};
 
@@ -58,6 +55,8 @@ const RegisterContainer = (props) => {
 			setNewEmail={setNewEmail}
 			newPassword={newPassword}
 			setNewPassword={setNewPassword}
+			passwordConfirmed={passwordConfirmed}
+			setPasswordConfirmed={setPasswordConfirmed}
 			errorMessage={errorMessage}
 		/>
 	);
