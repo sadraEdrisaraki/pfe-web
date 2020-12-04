@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 
 import participantService from "services/ParticipantService.js";
 
 import Register from "components/Register/Register";
 
-const RegisterContainer = (props) => {
+const RegisterContainer = () => {
 	const [newRole, setNewRole] = useState("Doctor");
 	const [newEmail, setNewEmail] = useState("");
 	const [newPassword, setNewPassword] = useState("");
 	const [passwordConfirmed, setPasswordConfirmed] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
+
+	//TODO redirect */* role
+	const checkTokenAndRedirect = () => {
+		if (localStorage.getItem("token")!==null)
+		<Redirect to="/establishment" />
+	}
+
+	const saveToken = (response) => {
+		localStorage.setItem("token", response)
+		checkTokenAndRedirect();
+	}
 
 	const addParticipant = (role, email, password) => {
 		const payload = {
@@ -19,8 +31,8 @@ const RegisterContainer = (props) => {
 		};
 		participantService
 			.register(payload)
-			.then((response) => response)
-			.catch((error) => console.log(error.response.data.errors));
+			.then((response) => saveToken(response))
+			.catch((error) => console.log("error : ", error + console.log("error 2: ",error.response.data.errors)));
 	};
 
 	const handleAddParticipant = (event) => {

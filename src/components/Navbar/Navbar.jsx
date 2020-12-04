@@ -3,7 +3,7 @@ import React,{useState} from "react";
 const Navbar = () => {
 	
 	const handleLogout = () => {
-		localStorage.setItem("datakey", "data");
+		localStorage.setItem("token", null);
 	}
 
 	return (

@@ -12,6 +12,18 @@ const LoginContainer = () => {
 	const [redirectPath, setRedirectPath] = useState("");
 	let history = useHistory();
 
+	//TODO redirect */* role
+	const checkTokenAndRedirect = () => {
+		if (localStorage.getItem("token")) {
+			setRedirectPath("establishment");
+		}
+	}
+
+	const saveToken = (response) => {
+		localStorage.setItem("token", response)
+		checkTokenAndRedirect();
+	}
+	
 	const login = (email, password) => {
 		const payload = {
 			login: email,
@@ -20,20 +32,19 @@ const LoginContainer = () => {
 
 		participantService
 			.login(payload)
-			.then((response) => localStorage.setItem("token", response))
+			.then((response) => saveToken(response))
 			.catch((error) =>
-				setErrorMessage(
+				/*setErrorMessage(
 					error.response.data.errors.Login[0] +
-						error.response.data.errors.Password[0]
-				)
+						error.response.data.errors.Password[0]*/
+				console.log("error : ", error + console.log("error 2: ", error.response.data.errors))
+		
 			);
-		//localStorage.setItem("token", response);
 	};
 
 	const handleLogin = (event) => {
 		event.preventDefault();
 		login(newEmail, newPassword);
-		setRedirectPath("establishment");
 		setNewEmail("");
 		setNewPassword("");
 	};

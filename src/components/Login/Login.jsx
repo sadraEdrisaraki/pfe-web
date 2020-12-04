@@ -15,7 +15,6 @@ const Login = ({
 	errorMessage,
 }) => {
 	return (
-		<div>
 			<div className="login-page">
 				<div className="login-container">
 					<h1>Se connecter</h1>
@@ -33,7 +32,6 @@ const Login = ({
 					</button>
 				</div>
 			</div>
-		</div>
 	);
 };
 
