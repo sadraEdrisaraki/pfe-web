@@ -21,7 +21,6 @@ const App = () => {
 	return (
 		<IntlProvider locale="fr" messages={translations[language]}>
 			<div className="app">
-			<Navbar/>
 			<Router>
 				<Switch>
 					<Route path="/register">
