@@ -4,7 +4,7 @@ import { useReactToPrint }  from "react-to-print"
 
 import qrOverAnimation from "./assets/qrOverAnimation.js"
 import qrOutAnimation from "./assets/qrOutAnimation.js"
-import "./style.css"
+import "./assets/style.css"
 
 import QRcodeItem from "components/SharedComponents/QRCodeItem/QRCodeItem"
 
