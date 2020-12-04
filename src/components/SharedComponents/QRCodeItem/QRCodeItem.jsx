@@ -11,6 +11,7 @@ class QRCodeItem extends React.Component{
                     <QRCode  
                         includeMargin="true" 
                         value={localStorage.getItem("id")}
+                        size="384"
                      />
                 </div>
                 
