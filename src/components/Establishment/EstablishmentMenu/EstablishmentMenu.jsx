@@ -7,12 +7,12 @@ import clickHistoryAnimation from "./assets/clickHistoryAnimation.js"
 import EstablishmentGenerateQRContainer from "components/Establishment/EstablishmentMenu/EstablishmentGenerateQR/EstablishmentGenerateQRContainer.jsx"
 import EstablishmentHistoryContainer from "components/Establishment/EstablishmentMenu/EstablishmentHistory/EstablishmentHistoryContainer"
 
-const EstablishmentMenu = () => {
+const EstablishmentMenu = ({setErrorMessage , setSuccessMessage}) => {
 
 
     return (
         <div className="establishment-menu">
-            <EstablishmentGenerateQRContainer/>
+            <EstablishmentGenerateQRContainer setErrorMessage={setErrorMessage} setSuccessMessage={setSuccessMessage}/>
             <div className="est-generateqr-btn" onMouseOver={generateAnimationZoomIn} onClick={clickGenerateAnimation}>
                 <div className="est-generateqr-btn-bg"></div>
                 <h2 className="est-generateqr-title">generate qr code</h2>
