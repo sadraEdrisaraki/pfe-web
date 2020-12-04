@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Password = ({ newPassword, setNewPassword }) => {
+const Password = ({ inputLabel,newPassword, setNewPassword }) => {
 	const handlePasswordChange = (event) => {
 		event.preventDefault();
 		setNewPassword(event.target.value);
@@ -8,8 +8,8 @@ const Password = ({ newPassword, setNewPassword }) => {
 
 	return (
 		<div>
-			Mot de passe
-			<input type="text" value={newPassword} onChange={handlePasswordChange} />
+			{inputLabel}
+			<input type="text" className="passwd-input" value={newPassword} onChange={handlePasswordChange} placeholder="mot-de-passe..."/>
 		</div>
 	);
 };

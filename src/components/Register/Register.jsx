@@ -1,48 +1,40 @@
 import React, { useState } from "react";
+import "./style.css";
+
 import { Link } from "react-router-dom";
 
-import "./style.css";
+import Email from "components/SharedComponents/FormItems/Email";
+import Password from "components/SharedComponents/FormItems/Password";
+import ErrorMessage from "components/SharedComponents/FormItems/ErrorMessage";
 
 const Register = ({
 	handleAddParticipant,
 	handleRoleChange,
-	handleEmailChange,
-	handlePasswordChange,
 	newRole,
 	newEmail,
+	setNewEmail,
 	newPassword,
+	setNewPassword,
+	errorMessage,
 }) => {
 	return (
 		<div className="register-page">
 			<div className="register-container">
 				<h1>S'inscrire</h1>
+				<ErrorMessage errorMessage={errorMessage} />
 				<form onSubmit={handleAddParticipant}>
-					<div className="mail">
-						<input
-							className="mail-input"
-							type="text"
-							value={newEmail}
-							onChange={handleEmailChange}
-							placeholder="adresse mail..."
-						/>
-					</div>
-					<div className="passwd">
-						<input
-							className="passwd-input"
-							type="text"
-							value={newPassword}
-							onChange={handlePasswordChange}
-							placeholder="mot-de-passe..."
-						/>
-					</div>
-					<div>
-						Confirm Password
-						<input
-							type="text"
-							/*value={newPassword}
-							onChange={handlePasswordChange}*/
-						/>
-					</div>
+					<Email newEmail={newEmail} setNewEmail={setNewEmail} />
+					<Password
+						inputLabel="Mot de passe"
+						newPassword={newPassword}
+						setNewPassword={setNewPassword}
+					/>
+
+					<Password
+						inputLabel="Confirmer mot de passe"
+						newPassword={newPassword}
+						setNewPassword={setNewPassword}
+					/>
 					<button className="btn-register" type="submit">
 						S'inscrire
 					</button>

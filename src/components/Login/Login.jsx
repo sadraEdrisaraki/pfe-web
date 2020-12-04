@@ -21,11 +21,11 @@ const Login = ({
 					<h1>Se connecter</h1>
 					<ErrorMessage errorMessage={errorMessage} />
 					<form>
-						<Password
+					<Email newEmail={newEmail} setNewEmail={setNewEmail} />
+						<Password inputLabel="Mot de passe"
 							newPassword={newPassword}
 							setNewPassword={setNewPassword}
 						/>
-						<Email newEmail={newEmail} setNewEmail={setNewEmail} />
 						<button onClick={handleLogin}>Se connecter</button>
 					</form>
 					<button type="submit">

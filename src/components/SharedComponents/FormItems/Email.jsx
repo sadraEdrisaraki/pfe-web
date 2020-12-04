@@ -9,7 +9,7 @@ const Email = ({ newEmail, setNewEmail }) => {
 	return (
 		<div>
 			Email
-			<input type="text" value={newEmail} onChange={handleEmailChange} />
+			<input type="text" className="mail-input" value={newEmail} onChange={handleEmailChange} placeholder="adresse mail..."/>
 		</div>
 	);
 };

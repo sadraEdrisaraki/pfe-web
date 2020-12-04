@@ -5,20 +5,26 @@ import participantService from "services/ParticipantService.js";
 import Register from "components/Register/Register";
 
 const RegisterContainer = (props) => {
-	const [newRole, setNewRole] = useState("medecin");
+	const [newRole, setNewRole] = useState("Doctor");
 	const [newEmail, setNewEmail] = useState("");
 	const [newPassword, setNewPassword] = useState("");
+	const [errorMessage, setErrorMessage] = useState("");
 
-    const addParticipant = (role, email, password) => {
+	const addParticipant = (role, email, password) => {
 		const payload = {
 			login: newEmail,
 			password: newPassword,
-			participant_Type:newRole
+			participant_Type: newRole,
 		};
 		participantService
 			.register(payload)
-			.then((response) => console.log(response));
-		// TO DO gestion erreurs -> handler middleware?
+			.then((response) => response)
+			.catch((error) =>
+				setErrorMessage(
+					error.response.data.errors.Login[0] +
+						error.response.data.errors.Password[0]
+				)
+			);
 	};
 
 	const handleAddParticipant = (event) => {
@@ -27,7 +33,7 @@ const RegisterContainer = (props) => {
 		setNewRole("");
 		setNewEmail("");
 		setNewPassword("");
-		console.log(newRole, newEmail, newPassword)
+		console.log(newRole, newEmail, newPassword);
 	};
 
 	const handleRoleChange = (event) => {
@@ -35,23 +41,16 @@ const RegisterContainer = (props) => {
 		setNewRole(event.target.value);
 	};
 
-	const handleEmailChange = (event) => {
-		setNewEmail(event.target.value);
-	};
-
-	const handlePasswordChange = (event) => {
-		setNewPassword(event.target.value);
-    };
-    
 	return (
 		<Register
 			handleAddParticipant={handleAddParticipant}
 			handleRoleChange={handleRoleChange}
-			handleEmailChange={handleEmailChange}
-			handlePasswordChange={handlePasswordChange}
 			newRole={newRole}
 			newEmail={newEmail}
+			setNewEmail={setNewEmail}
 			newPassword={newPassword}
+			setNewPassword={setNewPassword}
+			errorMessage={errorMessage}
 		/>
 	);
 };

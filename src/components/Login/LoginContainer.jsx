@@ -33,7 +33,7 @@ const LoginContainer = () => {
 	const handleLogin = (event) => {
 		event.preventDefault();
 		login(newEmail, newPassword);
-		setRedirectPath("establishment");
+		//setRedirectPath("establishment");
 		setNewEmail("");
 		setNewPassword("");
 	};
