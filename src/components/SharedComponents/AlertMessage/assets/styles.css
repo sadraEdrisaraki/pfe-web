@@ -1,0 +1,21 @@
+.error-alert-box{
+    color:white;
+    background-color: red;
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: solid;
+    border-radius: 10px;
+}
+
+.success-alert-box{
+    color:white;
+    background-color: green;
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: solid;
+    border-radius: 10px;
+}
