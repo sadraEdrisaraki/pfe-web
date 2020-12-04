@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import participantService from "services/ParticipantService.js";
 
@@ -40,6 +40,14 @@ const RegisterContainer = (props) => {
 		console.log("role change:", event.target.value);
 		setNewRole(event.target.value);
 	};
+
+	useEffect(() => {
+		console.log("effect");
+		const clearNotification = () => setErrorMessage("");
+		const handler = setTimeout(clearNotification, 10_000);
+		const abortHandler = () => clearTimeout(handler);
+		return abortHandler;
+	}, [errorMessage]);
 
 	return (
 		<Register
