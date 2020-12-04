@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import participantService from "services/ParticipantService.js";
 
 import Register from "components/Register/Register";
+import { handleErrorResponse } from "../../utils/SharedFunctions";
 
 const RegisterContainer = () => {
 	const [newRole, setNewRole] = useState("Doctor");
@@ -11,21 +12,6 @@ const RegisterContainer = () => {
 	const [newPassword, setNewPassword] = useState("");
 	const [passwordConfirmed, setPasswordConfirmed] = useState("");
 	const [errorMessage, setErrorMessage] = useState("");
-
-	const isEmailInputValid = (error) => {
-		return !error.response.data.errors.Login[0];
-	};
-
-	const isPasswordInputValid = (error) => {
-		return !error.response.data.errors.Password[0];
-	};
-
-	//TODO rajouter != codes et msg appropriés
-	const handleErrorResponse = (error) => {
-		if (error.response.data.status === 400)
-			if (!isEmailInputValid(error) || !isPasswordInputValid(error))
-				setErrorMessage("Email ou mot de passe invalide(s)");
-	};
 
 	//TODO redirect */* role
 	const checkTokenAndRedirect = () => {
@@ -47,7 +33,7 @@ const RegisterContainer = () => {
 		participantService
 			.register(payload)
 			.then((response) => saveToken(response))
-			.catch((error) => handleErrorResponse(error));
+			.catch((error) => handleErrorResponse(error,setErrorMessage));
 	};
 
 	const handleAddParticipant = (event) => {

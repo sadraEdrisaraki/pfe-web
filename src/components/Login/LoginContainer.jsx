@@ -4,6 +4,7 @@ import { Redirect, useHistory } from "react-router-dom";
 import participantService from "services/ParticipantService.js";
 
 import Login from "components/Login/Login";
+import { handleErrorResponse } from "../../utils/SharedFunctions";
 
 const LoginContainer = () => {
 	const [newEmail, setNewEmail] = useState("");
@@ -11,21 +12,6 @@ const LoginContainer = () => {
 	const [errorMessage, setErrorMessage] = useState("");
 	const [redirectPath, setRedirectPath] = useState("");
 	let history = useHistory();
-
-	const isEmailInputValid = (error) => {
-		return !error.response.data.errors.Login[0];
-	};
-
-	const isPasswordInputValid = (error) => {
-		return !error.response.data.errors.Password[0];
-	};
-
-	//TODO rajouter != codes et msg appropriés
-	const handleErrorResponse = (error) => {
-		if (error.response.data.status === 400)
-			if (!isEmailInputValid(error) || !isPasswordInputValid(error))
-				setErrorMessage("Email ou mot de passe invalide(s)");
-	};
 
 	//TODO redirect */* role
 	const checkTokenAndRedirect = () => {
@@ -48,7 +34,7 @@ const LoginContainer = () => {
 		participantService
 			.login(payload)
 			.then((response) => saveToken(response))
-			.catch((error) => handleErrorResponse(error));
+			.catch((error) => handleErrorResponse(error,setErrorMessage));
 	};
 
 	const handleLogin = (event) => {

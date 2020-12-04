@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 const Password = ({ inputLabel,newPassword, setNewPassword }) => {
 	const handlePasswordChange = (event) => {

@@ -1,7 +1,9 @@
-import React, { useContext, useState } from "react";
+import React from "react";
+import { FormattedMessage } from "react-intl";
 import "./style.css";
 
 import { Link } from "react-router-dom";
+
 import Email from "components/SharedComponents/FormItems/Email";
 import Password from "components/SharedComponents/FormItems/Password";
 import ErrorMessage from "components/SharedComponents/FormItems/ErrorMessage";
@@ -17,18 +19,18 @@ const Login = ({
 	return (
 			<div className="login-page">
 				<div className="login-container">
-					<h1>Se connecter</h1>
+					<h1><FormattedMessage id="loginFormTitleLabel"/></h1>
 					<ErrorMessage errorMessage={errorMessage} />
 					<form>
 					<Email newEmail={newEmail} setNewEmail={setNewEmail} />
-						<Password inputLabel="Mot de passe"
+					<Password inputLabel={<FormattedMessage id="passwordInputLabel"/>}
 							newPassword={newPassword}
 							setNewPassword={setNewPassword}
 						/>
-						<button onClick={handleLogin}>Se connecter</button>
+						<button onClick={handleLogin}><FormattedMessage id="buttonSubmitLoginFormLabel"/></button>
 					</form>
 					<button type="submit">
-						<Link to="/register">S'inscrire</Link>
+						<Link to="/register"><FormattedMessage id="buttonRegisterLinkLabel"/></Link>
 					</button>
 				</div>
 			</div>

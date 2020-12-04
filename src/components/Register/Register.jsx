@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { FormattedMessage } from "react-intl";
 import "./style.css";
 
 import { Link } from "react-router-dom";
@@ -22,22 +23,22 @@ const Register = ({
 	return (
 		<div className="register-page">
 			<div className="register-container">
-				<h1>S'inscrire</h1>
+				<h1><FormattedMessage id="registerFormTitleLabel"/></h1>
 				<ErrorMessage errorMessage={errorMessage} />
 				<form onSubmit={handleAddParticipant}>
 					<Email newEmail={newEmail} setNewEmail={setNewEmail} />
 					<Password
-						inputLabel="Mot de passe"
+						inputLabel={<FormattedMessage id="passwordInputLabel"/>}
 						newPassword={newPassword}
 						setNewPassword={setNewPassword}
 					/>
 					<Password
-						inputLabel="Confirmer mot de passe"
+						inputLabel={<FormattedMessage id="passwordToConfirmInputLabel"/>}
 						newPassword={passwordConfirmed}
 						setNewPassword={setPasswordConfirmed}
 					/>
 					<button className="btn-register" type="submit">
-						S'inscrire
+					<FormattedMessage id="buttonSubmitRegisterFormLabel"/>
 					</button>
 					<h4>Êtes-vous</h4>
 					<div>
@@ -48,7 +49,7 @@ const Register = ({
 							onChange={handleRoleChange}
 							name="role"
 						/>
-						Médecin
+						{<FormattedMessage id="doctorRadioButtonLabel"/>}
 						<input
 							type="radio"
 							value="Establishment"
@@ -56,12 +57,12 @@ const Register = ({
 							onChange={handleRoleChange}
 							name="role"
 						/>
-						Établissement
+						{<FormattedMessage id="establishmentRadioButtonLabel"/>}
 					</div>
 				</form>
 				<br />
 				<button type="submit">
-					<Link to="/">Se connecter</Link>
+					<Link to="/"><FormattedMessage id="buttonLoginLinkLabel"/></Link>
 				</button>
 			</div>
 		</div>
