@@ -20,20 +20,20 @@ const LoginContainer = () => {
 
 		participantService
 			.login(payload)
-			.then((response) => response)
+			.then((response) => localStorage.setItem("token", response))
 			.catch((error) =>
 				setErrorMessage(
 					error.response.data.errors.Login[0] +
 						error.response.data.errors.Password[0]
 				)
 			);
-		localStorage.setItem("testLocal", "testdatainlocalstorage");
+		//localStorage.setItem("token", response);
 	};
 
 	const handleLogin = (event) => {
 		event.preventDefault();
 		login(newEmail, newPassword);
-		//setRedirectPath("establishment");
+		setRedirectPath("establishment");
 		setNewEmail("");
 		setNewPassword("");
 	};
