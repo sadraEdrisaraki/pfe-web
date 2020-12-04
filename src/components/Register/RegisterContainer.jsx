@@ -10,7 +10,6 @@ const RegisterContainer = (props) => {
 	const [newPassword, setNewPassword] = useState("");
 
     const addParticipant = (role, email, password) => {
-		//TO DO traitement différent selon rôle?
 		const payload = {
 			login: newEmail,
 			password: newPassword,
