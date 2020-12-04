@@ -49,8 +49,8 @@
 .qrcode-generated{
     position: relative;
     left: 50%;
-    top: 20%;
-    transform: translate(-64px,-64px);
+    top: 30%;
+    transform: translate(-192px,-192px);
     cursor: pointer;
     transition: 0.5s;
     opacity: 0;
