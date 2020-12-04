@@ -8,7 +8,7 @@ const Password = ({ newPassword, setNewPassword }) => {
 
 	return (
 		<div>
-			Password
+			Mot de passe
 			<input type="text" value={newPassword} onChange={handlePasswordChange} />
 		</div>
 	);

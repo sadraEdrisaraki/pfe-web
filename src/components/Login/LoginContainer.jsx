@@ -14,29 +14,36 @@ const LoginContainer = () => {
 
 	const login = (email, password) => {
 		const payload = {
-			email: email,
+			login: email,
 			password: password,
 		};
+
 		participantService
 			.login(payload)
-			.then((response) => console.log(response))
-			.catch((error) => setErrorMessage(error));
+			.then((response) => response)
+			.catch((error) =>
+				setErrorMessage(
+					error.response.data.errors.Login[0] +
+						error.response.data.errors.Password[0]
+				)
+			);
 		localStorage.setItem("testLocal", "testdatainlocalstorage");
 	};
 
 	const handleLogin = (event) => {
 		event.preventDefault();
 		login(newEmail, newPassword);
-		//setRedirectPath("establishment");
+		setRedirectPath("establishment");
 		setNewEmail("");
 		setNewPassword("");
 	};
 
 	useEffect(() => {
 		console.log("effect");
-		setTimeout(() => {
-			setErrorMessage("");
-		}, 10000);
+		const clearNotification = () => setErrorMessage("");
+		const handler = setTimeout(clearNotification, 10_000);
+		const abortHandler = () => clearTimeout(handler);
+		return abortHandler;
 	}, [errorMessage]);
 
 	if (redirectPath === "establishment") {

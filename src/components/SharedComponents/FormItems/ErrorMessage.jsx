@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ErrorMessage = ({ errorMessage }) => {
-	return <div className="invalid-feedback">{errorMessage}</div>;
+	return <div>{errorMessage}</div>;
 };
 
 export default ErrorMessage;
