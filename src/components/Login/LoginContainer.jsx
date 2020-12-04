@@ -12,18 +12,33 @@ const LoginContainer = () => {
 	const [redirectPath, setRedirectPath] = useState("");
 	let history = useHistory();
 
+	const isEmailInputValid = (error) => {
+		return !error.response.data.errors.Login[0];
+	};
+
+	const isPasswordInputValid = (error) => {
+		return !error.response.data.errors.Password[0];
+	};
+
+	//TODO rajouter != codes et msg appropriés
+	const handleErrorResponse = (error) => {
+		if (error.response.data.status === 400)
+			if (!isEmailInputValid(error) || !isPasswordInputValid(error))
+				setErrorMessage("Email ou mot de passe invalide(s)");
+	};
+
 	//TODO redirect */* role
 	const checkTokenAndRedirect = () => {
 		if (localStorage.getItem("token")) {
 			setRedirectPath("establishment");
 		}
-	}
+	};
 
 	const saveToken = (response) => {
-		localStorage.setItem("token", response)
+		localStorage.setItem("token", response);
 		checkTokenAndRedirect();
-	}
-	
+	};
+
 	const login = (email, password) => {
 		const payload = {
 			login: email,
@@ -33,13 +48,7 @@ const LoginContainer = () => {
 		participantService
 			.login(payload)
 			.then((response) => saveToken(response))
-			.catch((error) =>
-				/*setErrorMessage(
-					error.response.data.errors.Login[0] +
-						error.response.data.errors.Password[0]*/
-				console.log("error : ", error + console.log("error 2: ", error.response.data.errors))
-		
-			);
+			.catch((error) => handleErrorResponse(error));
 	};
 
 	const handleLogin = (event) => {
