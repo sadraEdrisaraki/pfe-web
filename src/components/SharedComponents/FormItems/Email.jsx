@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { FormattedMessage } from "react-intl";
 
-const Email = ({ newEmail, setNewEmail }) => {
+const Email = ({ newEmail, setNewEmail,isEmailInputInvalid}) => {
 	const handleEmailChange = (event) => {
 		event.preventDefault();
 		setNewEmail(event.target.value);
@@ -9,8 +9,17 @@ const Email = ({ newEmail, setNewEmail }) => {
 
 	return (
 		<div>
-			<FormattedMessage id="emailInputLabel"/>
-			<input type="text" className="mail-input" value={newEmail} onChange={handleEmailChange} placeholder="adresse mail..."/>
+			<label>
+				<FormattedMessage id="emailInputLabel" />
+				<input
+					type="text"
+					className="mail-input"
+					value={newEmail}
+					onChange={handleEmailChange}
+					aria-required="true"
+					aria-invalid={isEmailInputInvalid}
+				/>
+			</label>
 		</div>
 	);
 };

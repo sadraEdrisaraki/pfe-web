@@ -12,8 +12,10 @@ const Login = ({
 	handleLogin,
 	newEmail,
 	setNewEmail,
+	isEmailInputInvalid,
 	newPassword,
 	setNewPassword,
+	isPasswordInputInvalid,
 	errorMessage,
 }) => {
 	return (
@@ -22,10 +24,11 @@ const Login = ({
 					<h1><FormattedMessage id="loginFormTitleLabel"/></h1>
 					<ErrorMessage errorMessage={errorMessage} />
 					<form>
-					<Email newEmail={newEmail} setNewEmail={setNewEmail} />
+					<Email newEmail={newEmail} setNewEmail={setNewEmail} isEmailInputInvalid={isEmailInputInvalid}/>
 					<Password inputLabel={<FormattedMessage id="passwordInputLabel"/>}
 							newPassword={newPassword}
-							setNewPassword={setNewPassword}
+						setNewPassword={setNewPassword}
+						isPasswordInputInvalid={isPasswordInputInvalid}
 						/>
 						<button onClick={handleLogin}><FormattedMessage id="buttonSubmitLoginFormLabel"/></button>
 					</form>

@@ -10,7 +10,14 @@
     "registerFormTitleLabel":"S'inscrire",
     "buttonSubmitRegisterFormLabel": "S'inscrire",
     "doctorRadioButtonLabel":"Médecin",
-    "establishmentRadioButtonLabel":"Établissement"
+    "establishmentRadioButtonLabel":"Établissement",
+    "nameInputLabel" :"Nom",
+    "descriptionInputLabel":"Description",
+    "buttonSubmitQRCodeFormLabel":"Créer code QR",
+    "languageOptionFrenchLabel":"Français",
+    "languageOptionEnglishLabel":"Anglais",
+    "languageOptionDutchLabel":"Néerlandais",
+    "EmailOrPasswordInvalidErrorMessage":"Email ou mot de passe invalide(s)"
 },
 "en":{
     "loginFormTitleLabel":"Login",
@@ -23,19 +30,33 @@
     "registerFormTitleLabel":"Register",
     "buttonSubmitRegisterFormLabel": "Register",
     "doctorRadioButtonLabel":"Doctor",
-    "establishmentRadioButtonLabel":"Establishment"
+    "establishmentRadioButtonLabel":"Establishment",
+    "nameInputLabel" :"Name",
+    "descriptionInputLabel":"Description",
+    "buttonSubmitQRCodeFormLabel":"Create QR code",
+    "languageOptionFrenchLabel":"French",
+    "languageOptionEnglishLabel":"English",
+    "languageOptionDutchLabel":"Dutch",
+    "EmailOrPasswordInvalidErrorMessage":"Invalid email or password"
 },
 "nl":{
     "loginFormTitleLabel":"Aanmelden",
     "emailInputLabel":"E-mail",
     "passwordInputLabel":"Wachtwoord",
-    "passwordToConfirmInputLabel":"Bevestigen wachtwoord",
+    "passwordToConfirmInputLabel":"Wachtwoord bevestigen",
     "buttonSubmitLoginFormLabel": "Aanmelden",
     "buttonRegisterLinkLabel": "Registreren",
     "buttonLoginLinkLabel": "Aanmelden",
     "registerFormTitleLabel":"Registreren",
     "buttonSubmitRegisterFormLabel": "Registreren",
     "doctorRadioButtonLabel":"Dokter",
-    "establishmentRadioButtonLabel":"Instelling"
+    "establishmentRadioButtonLabel":"Instelling",
+    "nameInputLabel" :"Naam",
+    "descriptionInputLabel":"Descriptie",
+    "buttonSubmitQRCodeFormLabel":"QR-Code maken",
+    "languageOptionFrenchLabel":"Frans",
+    "languageOptionEnglishLabel":"Engels",
+    "languageOptionDutchLabel":"Nederlands",
+    "EmailOrPasswordInvalidErrorMessage":"E-mail of wachtwoord ongeldig"
 }
 }

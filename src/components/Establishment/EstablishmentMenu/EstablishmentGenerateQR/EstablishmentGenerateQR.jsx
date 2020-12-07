@@ -1,4 +1,5 @@
-import React , {useState, useEffect, useRef} from "react"
+import React, { useState, useEffect, useRef } from "react"
+import { FormattedMessage } from "react-intl";
 import {v4 as uuidv4} from "uuid"
 import { useReactToPrint }  from "react-to-print"
 
@@ -52,13 +53,19 @@ const EstablishmentGenerateQR = ({createQR}) => {
             </div>
             
             <div className="form-container">
-                <input type="text" placeholder="Name (optional)" className="input-name form-input" onChange={handleChangeName} value={name}/>
+                <label>
+                <FormattedMessage id="nameInputLabel" />
+                    <input type="text" className="input-name form-input" onChange={handleChangeName} value={name} />
+                    </label>
+                <br />
+                <label>
+                <FormattedMessage id="descriptionInputLabel" />
+                <input type="text" className="input-desc form-input" onChange={handleChangeDescription} value={description}/>
+                </label>               
+                    <br />
                 <br/>
-                <input type="text" placeholder="Description (optional)" className="input-desc form-input" onChange={handleChangeDescription} value={description}/>
                 <br/>
-                <br/>
-                <br/>
-                <button className="btn-generateqr" onClick={handleClick}>Create QR</button>
+                <button className="btn-generateqr" onClick={handleClick}><FormattedMessage id="buttonSubmitQRCodeFormLabel" /></button>
             </div>
         </div>
     )

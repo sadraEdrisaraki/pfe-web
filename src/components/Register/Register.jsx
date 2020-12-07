@@ -14,34 +14,43 @@ const Register = ({
 	newRole,
 	newEmail,
 	setNewEmail,
+	isEmailInputInvalid,
 	newPassword,
 	setNewPassword,
+	isPasswordInputInvalid,
 	passwordConfirmed,
 	setPasswordConfirmed,
+	isPasswordConfirmedInputInvalid,
 	errorMessage,
 }) => {
 	return (
 		<div className="register-page">
 			<div className="register-container">
-				<h1><FormattedMessage id="registerFormTitleLabel"/></h1>
+				<h1>
+					<FormattedMessage id="registerFormTitleLabel" />
+				</h1>
 				<ErrorMessage errorMessage={errorMessage} />
 				<form onSubmit={handleAddParticipant}>
-					<Email newEmail={newEmail} setNewEmail={setNewEmail} />
+					<Email newEmail={newEmail} setNewEmail={setNewEmail} isEmailInputInvalid={isEmailInputInvalid} />
 					<Password
-						inputLabel={<FormattedMessage id="passwordInputLabel"/>}
+						inputLabel={<FormattedMessage id="passwordInputLabel" />}
 						newPassword={newPassword}
 						setNewPassword={setNewPassword}
+						isPasswordInputInvalid={isPasswordInputInvalid}
 					/>
 					<Password
-						inputLabel={<FormattedMessage id="passwordToConfirmInputLabel"/>}
+						inputLabel={<FormattedMessage id="passwordToConfirmInputLabel" />}
 						newPassword={passwordConfirmed}
 						setNewPassword={setPasswordConfirmed}
+						isPasswordInputInvalid={isPasswordConfirmedInputInvalid}
 					/>
 					<button className="btn-register" type="submit">
-					<FormattedMessage id="buttonSubmitRegisterFormLabel"/>
+						<FormattedMessage id="buttonSubmitRegisterFormLabel" />
 					</button>
-					<h4>Êtes-vous</h4>
-					<div>
+					<fieldset>
+						<legend>
+							<h4>Êtes-vous</h4>
+						</legend>
 						<input
 							type="radio"
 							value="Doctor"
@@ -49,7 +58,7 @@ const Register = ({
 							onChange={handleRoleChange}
 							name="role"
 						/>
-						{<FormattedMessage id="doctorRadioButtonLabel"/>}
+						<label>{<FormattedMessage id="doctorRadioButtonLabel" />}</label>
 						<input
 							type="radio"
 							value="Establishment"
@@ -57,12 +66,16 @@ const Register = ({
 							onChange={handleRoleChange}
 							name="role"
 						/>
-						{<FormattedMessage id="establishmentRadioButtonLabel"/>}
-					</div>
+						<label>
+							{<FormattedMessage id="establishmentRadioButtonLabel" />}
+						</label>
+					</fieldset>
 				</form>
 				<br />
 				<button type="submit">
-					<Link to="/"><FormattedMessage id="buttonLoginLinkLabel"/></Link>
+					<Link to="/">
+						<FormattedMessage id="buttonLoginLinkLabel" />
+					</Link>
 				</button>
 			</div>
 		</div>

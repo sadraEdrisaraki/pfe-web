@@ -9,8 +9,11 @@ import { handleErrorResponse } from "../../utils/SharedFunctions";
 const RegisterContainer = () => {
 	const [newRole, setNewRole] = useState("Doctor");
 	const [newEmail, setNewEmail] = useState("");
+	const [isEmailInputInvalid, setIsEmailInputInvalid] = useState(false);
 	const [newPassword, setNewPassword] = useState("");
+	const [isPasswordInputInvalid, setIsPasswordInputInvalid] = useState(false);
 	const [passwordConfirmed, setPasswordConfirmed] = useState("");
+	const [isPasswordConfirmedInputInvalid, setIsPasswordConfirmedInputInvalid] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
 
 	//TODO redirect */* role
@@ -33,7 +36,12 @@ const RegisterContainer = () => {
 		participantService
 			.register(payload)
 			.then((response) => saveToken(response))
-			.catch((error) => handleErrorResponse(error,setErrorMessage));
+			.catch((error) => handleErrorResponse(
+				error,
+				setErrorMessage,
+				setIsEmailInputInvalid,
+				setIsPasswordInputInvalid
+			));
 	};
 
 	const handleAddParticipant = (event) => {
@@ -51,9 +59,16 @@ const RegisterContainer = () => {
 		setNewRole(event.target.value);
 	};
 
+	const clearErrorMessages = () => {
+		setErrorMessage("")
+		setIsEmailInputInvalid(false)
+		setIsPasswordInputInvalid(false)
+		setIsPasswordConfirmedInputInvalid(false)
+	}
+
 	useEffect(() => {
 		console.log("effect");
-		const clearNotification = () => setErrorMessage("");
+		const clearNotification = () => clearErrorMessages();
 		const handler = setTimeout(clearNotification, 10_000);
 		const abortHandler = () => clearTimeout(handler);
 		return abortHandler;
@@ -66,10 +81,13 @@ const RegisterContainer = () => {
 			newRole={newRole}
 			newEmail={newEmail}
 			setNewEmail={setNewEmail}
+			isEmailInputInvalid={isEmailInputInvalid}
 			newPassword={newPassword}
 			setNewPassword={setNewPassword}
+			isPasswordInputInvalid={isPasswordInputInvalid}
 			passwordConfirmed={passwordConfirmed}
 			setPasswordConfirmed={setPasswordConfirmed}
+			isPasswordConfirmedInputInvalid={isPasswordConfirmedInputInvalid}
 			errorMessage={errorMessage}
 		/>
 	);
