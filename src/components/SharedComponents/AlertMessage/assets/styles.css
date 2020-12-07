@@ -1,0 +1,27 @@
+.error-alert-box , .success-alert-box{
+    color:white;
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    border: solid;
+    border-radius: 10px;
+    opacity: 0.7;
+    min-width: 150px;
+    transition: 0.5s;
+}
+
+.error-alert-box{
+    background-color: red;
+    border-color: red;
+}
+
+.success-alert-box{
+    background-color: green;
+    border-color: green ;
+}
+
+.message{
+    margin-top: 15px;
+}
