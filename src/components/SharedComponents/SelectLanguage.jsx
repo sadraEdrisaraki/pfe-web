@@ -11,16 +11,27 @@ const SelectLanguage = () => {
 		setLanguage(event.target.value);
 	};
 
-	return (
-		<select value={language} onChange={handleLanguageChange}>
-			<option value="fr">
-				<FormattedMessage id="languageOptionFrenchLabel" />
+	console.log(<FormattedMessage id="languageOptionFrenchLabel" />)
+
+	/*
+<option value="fr"><FormattedMessage id="languageOptionFrenchLabel" />
 			</option>
 			<option value="en">
 				<FormattedMessage id="languageOptionEnglishLabel" />
 			</option>
 			<option value="nl">
 				<FormattedMessage id="languageOptionDutchLabel" />
+			</option>
+	*/
+	return (
+		<select value={language} onChange={handleLanguageChange}>
+			<option value="fr">Français
+			</option>
+			<option value="en">
+				Anglais
+			</option>
+			<option value="nl">
+				Néerlandais
 			</option>
 		</select>
 	);

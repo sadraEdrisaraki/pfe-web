@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-
+import {
+	Redirect,
+} from "react-router-dom";
 import participantService from "services/ParticipantService.js";
 
 import Register from "components/Register/Register";
@@ -17,10 +19,11 @@ const RegisterContainer = () => {
 		setIsPasswordConfirmedInputInvalid,
 	] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
+	const [loggedIn, setLoggedIn] = useState(false);
 
 	const saveToken = (response) => {
 		localStorage.setItem("token", response);
-		console.log("Token saved", localStorage.getItem("token"));
+		setLoggedIn(true)
 		setNewRole("Doctor");
 		setNewEmail("");
 		setNewPassword("");
@@ -79,6 +82,10 @@ const RegisterContainer = () => {
 		const abortHandler = () => clearTimeout(handler);
 		return abortHandler;
 	},[errorMessage]);
+
+	if (loggedIn) {
+		return <Redirect to="/establishment"/>
+	}
 
 	return (
 		<Register

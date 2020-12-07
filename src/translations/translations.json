@@ -17,10 +17,12 @@
     "languageOptionFrenchLabel":"Français",
     "languageOptionEnglishLabel":"Anglais",
     "languageOptionDutchLabel":"Néerlandais",
-    "EmailOrPasswordInvalidErrorMessage":"Email ou mot de passe invalide(s)",
-    "PasswordToConfirmInvalidErrorMessage":"Veuillez confirmer le mot de passe",
-    "PasswordAndPasswordToConfirmNoMatchErrorMessage":"Le mot de passe et le mot de passe à confirmer ne correspondent pas",
-    "FormEmptyErrorMessage":"Veuillez compléter le formulaire"
+    "emailOrPasswordInvalidErrorMessage":"Email ou mot de passe invalide(s)",
+    "passwordToConfirmInvalidErrorMessage":"Veuillez confirmer le mot de passe",
+    "passwordAndPasswordToConfirmNoMatchErrorMessage":"Le mot de passe et le mot de passe à confirmer ne correspondent pas",
+    "formEmptyErrorMessage":"Veuillez compléter le formulaire",
+    "generateQRCodeMenuLabel":"Générer un code QR",
+    "listQRCodesMenuLabel":"Mes codes QR"
 },
 "en":{
     "loginFormTitleLabel":"Login",
@@ -40,7 +42,12 @@
     "languageOptionFrenchLabel":"French",
     "languageOptionEnglishLabel":"English",
     "languageOptionDutchLabel":"Dutch",
-    "EmailOrPasswordInvalidErrorMessage":"Invalid email or password"
+    "emailOrPasswordInvalidErrorMessage":"Invalid email or password",
+    "passwordToConfirmInvalidErrorMessage":"Please confirm the password",
+    "passwordAndPasswordToConfirmNoMatchErrorMessage":"Password and confirmed password doesn't match",
+    "formEmptyErrorMessage":"Please fill the form",
+    "generateQRCodeMenuLabel":"Generate a QR code",
+    "listQRCodesMenuLabel":"My QR codes"
 },
 "nl":{
     "loginFormTitleLabel":"Aanmelden",
@@ -60,6 +67,11 @@
     "languageOptionFrenchLabel":"Frans",
     "languageOptionEnglishLabel":"Engels",
     "languageOptionDutchLabel":"Nederlands",
-    "EmailOrPasswordInvalidErrorMessage":"E-mail of wachtwoord ongeldig"
+    "emailOrPasswordInvalidErrorMessage":"Ongeldig e-mail en wachtwoord",
+    "passwordToConfirmInvalidErrorMessage":"Alstublieft bevestig de wachtwoord",
+    "passwordAndPasswordToConfirmNoMatchErrorMessage":"Wachtwoorden zijn niet gelijk",
+    "formEmptyErrorMessage":"Het formulier invullen",
+    "generateQRCodeMenuLabel":"QR-Code maken",
+    "listQRCodesMenuLabel":"Mijn QR-Code"
 }
 }
