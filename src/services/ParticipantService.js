@@ -11,7 +11,7 @@ const login = (newObject) => {
 
 const register = (newObject) => {
 	const request = axios.post(registerAPI, newObject);
-	return request.then((response) => response.data);
+	return request.then((response) => response);
 };
 
 export default { login, register };
