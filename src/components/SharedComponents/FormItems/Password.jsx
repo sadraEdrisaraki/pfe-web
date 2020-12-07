@@ -16,6 +16,7 @@ const Password = ({ inputLabel, newPassword, setNewPassword }) => {
 					className="passwd-input"
 					value={newPassword}
 					onChange={handlePasswordChange}
+					aria-required="true"
 				/>
 			</label>
 		</div>

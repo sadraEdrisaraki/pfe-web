@@ -16,6 +16,7 @@ const Email = ({ newEmail, setNewEmail }) => {
 					className="mail-input"
 					value={newEmail}
 					onChange={handleEmailChange}
+					aria-required="true"
 				/>
 			</label>
 		</div>
