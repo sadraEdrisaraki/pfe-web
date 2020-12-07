@@ -8,7 +8,9 @@ import { handleErrorResponse } from "../../utils/SharedFunctions";
 
 const LoginContainer = () => {
 	const [newEmail, setNewEmail] = useState("");
+	const [isEmailInputInvalid, setIsEmailInputInvalid] = useState(false);
 	const [newPassword, setNewPassword] = useState("");
+	const [isPasswordInputInvalid, setIsPasswordInputInvalid] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
 	const [redirectPath, setRedirectPath] = useState("");
 	let history = useHistory();
@@ -34,7 +36,14 @@ const LoginContainer = () => {
 		participantService
 			.login(payload)
 			.then((response) => saveToken(response))
-			.catch((error) => handleErrorResponse(error,setErrorMessage));
+			.catch((error) =>
+				handleErrorResponse(
+					error,
+					setErrorMessage,
+					setIsEmailInputInvalid,
+					setIsPasswordInputInvalid
+				)
+			);
 	};
 
 	const handleLogin = (event) => {
@@ -44,9 +53,15 @@ const LoginContainer = () => {
 		setNewPassword("");
 	};
 
+	const clearErrorMessages = () => {
+		setErrorMessage("")
+		setIsEmailInputInvalid(false)
+		setIsPasswordInputInvalid(false)
+	}
+
 	useEffect(() => {
 		console.log("effect");
-		const clearNotification = () => setErrorMessage("");
+		const clearNotification = () => clearErrorMessages();
 		const handler = setTimeout(clearNotification, 10_000);
 		const abortHandler = () => clearTimeout(handler);
 		return abortHandler;
@@ -58,14 +73,15 @@ const LoginContainer = () => {
 		return <Redirect to="/register" />;
 	}
 
-	// TODO verifier le role afin de redirect correctement
 	return (
 		<Login
 			handleLogin={handleLogin}
 			newEmail={newEmail}
 			setNewEmail={setNewEmail}
+			isEmailInputInvalid={isEmailInputInvalid}
 			newPassword={newPassword}
 			setNewPassword={setNewPassword}
+			isPasswordInputInvalid={isPasswordInputInvalid}
 			errorMessage={errorMessage}
 		/>
 	);

@@ -1,16 +1,36 @@
-const isEmailInputValid = (error) => {
-	return !error.response.data.errors.Login[0];
+import { FormattedMessage } from "react-intl";
+
+const isEmailOrPasswordInvalid = (error) => {
+	return (
+		error.response.data.errors.Login[0] ||
+		error.response.data.errors.Password[0]
+	);
 };
 
-const isPasswordInputValid = (error) => {
-	return !error.response.data.errors.Password[0];
+const isFormInputInvalid = (error) => {
+	return error.response.data.status === 400;
 };
 
-//TODO rajouter != codes et msg appropriés
-const handleErrorResponse = (error,setErrorMessage) => {
-    if (error.response.data.status === 400)
-        if (!isEmailInputValid(error) || !isPasswordInputValid(error))
-            setErrorMessage("Email ou mot de passe invalide(s)");
+const isFormInputWrong = (error) => {
+	return error.response.data.status === 412;
+};
+
+const handleErrorResponse = (
+	error,
+	setErrorMessage,
+	setIsEmailInputInvalid,
+	setIsPasswordInputInvalid
+) => {
+	console.log("Error: ",error)
+	if (isFormInputInvalid(error)) {
+		if (isEmailOrPasswordInvalid(error)) {
+			setErrorMessage(< FormattedMessage id = "EmailOrPasswordInvalidErrorMessage" />);
+			setIsEmailInputInvalid(true);
+			setIsPasswordInputInvalid(true);
+		}
+	} else if (isFormInputWrong(error)) {
+		setErrorMessage("Le mpd et mdp confirmé ne correspondent pas");
+	}
 };
 
 export { handleErrorResponse };

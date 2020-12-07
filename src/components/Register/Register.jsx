@@ -14,10 +14,13 @@ const Register = ({
 	newRole,
 	newEmail,
 	setNewEmail,
+	isEmailInputInvalid,
 	newPassword,
 	setNewPassword,
+	isPasswordInputInvalid,
 	passwordConfirmed,
 	setPasswordConfirmed,
+	isPasswordConfirmedInputInvalid,
 	errorMessage,
 }) => {
 	return (
@@ -28,16 +31,18 @@ const Register = ({
 				</h1>
 				<ErrorMessage errorMessage={errorMessage} />
 				<form onSubmit={handleAddParticipant}>
-					<Email newEmail={newEmail} setNewEmail={setNewEmail} />
+					<Email newEmail={newEmail} setNewEmail={setNewEmail} isEmailInputInvalid={isEmailInputInvalid} />
 					<Password
 						inputLabel={<FormattedMessage id="passwordInputLabel" />}
 						newPassword={newPassword}
 						setNewPassword={setNewPassword}
+						isPasswordInputInvalid={isPasswordInputInvalid}
 					/>
 					<Password
 						inputLabel={<FormattedMessage id="passwordToConfirmInputLabel" />}
 						newPassword={passwordConfirmed}
 						setNewPassword={setPasswordConfirmed}
+						isPasswordInputInvalid={isPasswordConfirmedInputInvalid}
 					/>
 					<button className="btn-register" type="submit">
 						<FormattedMessage id="buttonSubmitRegisterFormLabel" />

@@ -1,7 +1,12 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 
-const Password = ({ inputLabel, newPassword, setNewPassword }) => {
+const Password = ({
+	inputLabel,
+	newPassword,
+	setNewPassword,
+	isPasswordInputInvalid
+}) => {
 	const handlePasswordChange = (event) => {
 		event.preventDefault();
 		setNewPassword(event.target.value);
@@ -17,6 +22,7 @@ const Password = ({ inputLabel, newPassword, setNewPassword }) => {
 					value={newPassword}
 					onChange={handlePasswordChange}
 					aria-required="true"
+					aria-invalid={isPasswordInputInvalid}
 				/>
 			</label>
 		</div>
