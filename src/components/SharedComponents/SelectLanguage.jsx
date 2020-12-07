@@ -10,10 +10,10 @@ const SelectLanguage = () => {
 		event.preventDefault();
 		setLanguage(event.target.value);
 	};
+
 	return (
 		<select value={language} onChange={handleLanguageChange}>
 			<option value="fr">
-				{" "}
 				<FormattedMessage id="languageOptionFrenchLabel" />
 			</option>
 			<option value="en">

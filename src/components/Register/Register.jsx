@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import Email from "components/SharedComponents/FormItems/Email";
 import Password from "components/SharedComponents/FormItems/Password";
-import ErrorMessage from "components/SharedComponents/FormItems/ErrorMessage";
+import ErrorMessages from "components/SharedComponents/FormItems/ErrorMessage";
 
 const Register = ({
 	handleAddParticipant,
@@ -29,7 +29,7 @@ const Register = ({
 				<h1>
 					<FormattedMessage id="registerFormTitleLabel" />
 				</h1>
-				<ErrorMessage errorMessage={errorMessage} />
+				<ErrorMessages errorMessage={errorMessage} />
 				<form onSubmit={handleAddParticipant}>
 					<Email newEmail={newEmail} setNewEmail={setNewEmail} isEmailInputInvalid={isEmailInputInvalid} />
 					<Password
