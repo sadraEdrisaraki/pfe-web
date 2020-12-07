@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import participantService from "services/ParticipantService.js";
 
@@ -12,19 +12,13 @@ const LoginContainer = () => {
 	const [newPassword, setNewPassword] = useState("");
 	const [isPasswordInputInvalid, setIsPasswordInputInvalid] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
-	const [redirectPath, setRedirectPath] = useState("");
-	let history = useHistory();
-
-	//TODO redirect */* role
-	const checkTokenAndRedirect = () => {
-		if (localStorage.getItem("token")) {
-			setRedirectPath("establishment");
-		}
-	};
+	const [loggedIn, setLoggedIn] = useState(false);
 
 	const saveToken = (response) => {
 		localStorage.setItem("token", response);
-		checkTokenAndRedirect();
+		setLoggedIn(true)
+		setNewEmail("");
+		setNewPassword("");
 	};
 
 	const login = (email, password) => {
@@ -32,7 +26,6 @@ const LoginContainer = () => {
 			login: email,
 			password: password,
 		};
-
 		participantService
 			.login(payload)
 			.then((response) => saveToken(response))
@@ -48,9 +41,12 @@ const LoginContainer = () => {
 
 	const handleLogin = (event) => {
 		event.preventDefault();
+		console.log(
+			"connexion:",
+			newEmail,
+			newPassword
+		);
 		login(newEmail, newPassword);
-		setNewEmail("");
-		setNewPassword("");
 	};
 
 	const clearErrorMessages = () => {
@@ -62,15 +58,13 @@ const LoginContainer = () => {
 	useEffect(() => {
 		console.log("effect");
 		const clearNotification = () => clearErrorMessages();
-		const handler = setTimeout(clearNotification, 10_000);
+		const handler = setTimeout(clearNotification,5000);
 		const abortHandler = () => clearTimeout(handler);
 		return abortHandler;
 	}, [errorMessage]);
 
-	if (redirectPath === "establishment") {
-		setRedirectPath("");
-		history.push("/establishment");
-		return <Redirect to="/register" />;
+	if (loggedIn) {
+		return <Redirect to="/establishment"/>
 	}
 
 	return (

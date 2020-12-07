@@ -17,6 +17,10 @@ import EstablishmentPage from "components/Establishment/EstablishmentPage/Establ
 const App = () => {
 	const { language } = useContext(QRCodeContext);
 
+	const isValidToken = () => {
+		return localStorage.getItem("token") !== null;
+	};
+
 	return (
 		<IntlProvider locale="fr" messages={translations[language]}>
 			<div className="app">
@@ -26,10 +30,18 @@ const App = () => {
 							<EstablishmentPage />
 						</Route>
 						<Route path="/register">
-							<RegisterContainer />
+						{isValidToken() ? (
+								<Redirect to="/establishment" />
+							) : (
+								<RegisterContainer />
+							)}
 						</Route>
 						<Route path="/">
-							<LoginContainer />
+							{isValidToken() ? (
+								<Redirect to="/establishment" />
+							) : (
+								<LoginContainer />
+							)}
 						</Route>
 					</Switch>
 				</Router>
