@@ -18,11 +18,11 @@ const EstablishmentHistory = ({listeItems}) => {
                 Search : <input type="text" className="searc-text" onChange={handleChangeSearch}></input>
             </div>
             {listeItems.filter(function(item){
-                if(item.name.includes(filter) || item.description.includes(filter)){
+                if(  (item.name != undefined && item.name.includes(filter)) || (item.description != undefined && item.description.includes(filter))){
                     return true;
                 }
             }).map(item => (
-                <EstablishmentHistoryItem key={item.id} id={item.id} name={item.name} description={item.description} />
+                <EstablishmentHistoryItem key={item.qrCodeID} id={item.qrCodeID} name={item.name} description={item.description} />
             ))}
         </div>
     )

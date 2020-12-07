@@ -9,7 +9,6 @@ const EstablishmentGenerateQRContainer = () => {
     } = useContext(QRCodeContext)
 
     const createQR = (id, name, description) => {
-        console.log(id, name , description)
         createQRcode(id, name, description)
     }
 
