@@ -12,7 +12,7 @@ const EstablishmentMenu = ({setErrorMessage , setSuccessMessage}) => {
 
     return (
         <div className="establishment-menu">
-            <EstablishmentGenerateQRContainer setErrorMessage={setErrorMessage} setSuccessMessage={setSuccessMessage}/>
+            <EstablishmentGenerateQRContainer/>
             <div className="est-generateqr-btn" onMouseOver={generateAnimationZoomIn} onClick={clickGenerateAnimation}>
                 <div className="est-generateqr-btn-bg"></div>
                 <h2 className="est-generateqr-title">generate qr code</h2>

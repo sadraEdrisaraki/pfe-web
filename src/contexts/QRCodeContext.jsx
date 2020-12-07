@@ -34,7 +34,19 @@ const ProviderWrapper = (props) => {
 				]
 	}
 
-	const exposedValue = { language, setLanguage, getAllQR };
+	const createQRcode = (id, name, desc) => {
+		QRCodeService
+			.create({id:id,name:name,description:desc})
+			.then( response => {
+				console.log("creation réussi");
+				console.log(response)
+			})
+			.catch(reason => {
+				console.log(reason)
+			})
+	}
+
+	const exposedValue = { language, setLanguage, getAllQR, createQRcode };
 	return (
 		<Context.Provider value={exposedValue}>{props.children}</Context.Provider>
 	);

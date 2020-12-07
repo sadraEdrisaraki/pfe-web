@@ -13,6 +13,8 @@ const clickHistoryAnimation = () => {
     formContainer.style.height = "0%"
     qrcode.style.opacity = "0"
 
+    
+
 }
 
 export default clickHistoryAnimation

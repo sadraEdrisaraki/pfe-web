@@ -1,12 +1,16 @@
-import React, {useState} from "react"
+import React, {useState, useContext} from "react"
 import EstablishmentGenerateQR from "components/Establishment/EstablishmentMenu/EstablishmentGenerateQR/EstablishmentGenerateQR"
 import QRCodeContext from "contexts/QRCodeContext"
 
-const EstablishmentGenerateQRContainer = ({setErrorMessage , setSuccessMessage}) => {
+const EstablishmentGenerateQRContainer = () => {
+
+    const {
+        createQRcode
+    } = useContext(QRCodeContext)
 
     const createQR = (id, name, description) => {
         console.log(id, name , description)
-        setSuccessMessage("QR code created")
+        createQRcode(id, name, description)
     }
 
     return (

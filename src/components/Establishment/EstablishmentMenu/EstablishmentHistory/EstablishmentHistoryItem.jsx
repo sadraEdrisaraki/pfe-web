@@ -3,10 +3,12 @@ import QRCode from "qrcode-react"
 
 const EstablishmentHistoryItem = ({id , name , description}) => {
 
-
+    const handleClick = () => {
+        console.log(id)
+    }
 
     return (
-        <div className="item-container">
+        <div className="item-container" onClick={handleClick}>
             <div className="item-qr">
                 <QRCode  
                     includeMargin="true" 
