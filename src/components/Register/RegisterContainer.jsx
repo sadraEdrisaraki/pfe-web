@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
 
 import participantService from "services/ParticipantService.js";
 
@@ -13,45 +12,52 @@ const RegisterContainer = () => {
 	const [newPassword, setNewPassword] = useState("");
 	const [isPasswordInputInvalid, setIsPasswordInputInvalid] = useState(false);
 	const [passwordConfirmed, setPasswordConfirmed] = useState("");
-	const [isPasswordConfirmedInputInvalid, setIsPasswordConfirmedInputInvalid] = useState(false);
+	const [
+		isPasswordConfirmedInputInvalid,
+		setIsPasswordConfirmedInputInvalid,
+	] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
-
-	//TODO redirect */* role
-	const checkTokenAndRedirect = () => {
-		if (localStorage.getItem("token") !== null)
-			<Redirect to="/establishment" />;
-	};
 
 	const saveToken = (response) => {
 		localStorage.setItem("token", response);
-		checkTokenAndRedirect();
+		console.log("Token saved", localStorage.getItem("token"));
+		setNewRole("Doctor");
+		setNewEmail("");
+		setNewPassword("");
+		setPasswordConfirmed("");
 	};
 
-	const addParticipant = (role, email, password) => {
+	const addParticipant = (role, email, password, passwordConfirmed) => {
 		const payload = {
-			login: newEmail,
-			password: newPassword,
-			participant_Type: newRole,
+			login: email,
+			password: password,
+			confirmPassword: passwordConfirmed,
+			participant_Type: role,
 		};
 		participantService
 			.register(payload)
 			.then((response) => saveToken(response))
-			.catch((error) => handleErrorResponse(
-				error,
-				setErrorMessage,
-				setIsEmailInputInvalid,
-				setIsPasswordInputInvalid
-			));
+			.catch((error) =>
+				handleErrorResponse(
+					error,
+					setErrorMessage,
+					setIsEmailInputInvalid,
+					setIsPasswordInputInvalid,
+					setIsPasswordConfirmedInputInvalid
+				)
+			);
 	};
 
 	const handleAddParticipant = (event) => {
 		event.preventDefault();
-		addParticipant(newRole, newEmail, newPassword);
-		setNewRole("");
-		setNewEmail("");
-		setNewPassword("");
-		setPasswordConfirmed("");
-		console.log(newRole, newEmail, newPassword);
+		console.log(
+			"inscription:",
+			newRole,
+			newEmail,
+			newPassword,
+			passwordConfirmed
+		);
+		addParticipant(newRole, newEmail, newPassword, passwordConfirmed);
 	};
 
 	const handleRoleChange = (event) => {
@@ -60,19 +66,19 @@ const RegisterContainer = () => {
 	};
 
 	const clearErrorMessages = () => {
-		setErrorMessage("")
-		setIsEmailInputInvalid(false)
-		setIsPasswordInputInvalid(false)
-		setIsPasswordConfirmedInputInvalid(false)
-	}
+		setErrorMessage("");
+		setIsEmailInputInvalid(false);
+		setIsPasswordInputInvalid(false);
+		setIsPasswordConfirmedInputInvalid(false);
+	};
 
 	useEffect(() => {
 		console.log("effect");
 		const clearNotification = () => clearErrorMessages();
-		const handler = setTimeout(clearNotification, 10_000);
+		const handler = setTimeout(clearNotification,5000);
 		const abortHandler = () => clearTimeout(handler);
 		return abortHandler;
-	}, [errorMessage]);
+	},[errorMessage]);
 
 	return (
 		<Register

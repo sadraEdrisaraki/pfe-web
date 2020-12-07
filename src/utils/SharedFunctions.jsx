@@ -1,14 +1,31 @@
 import { FormattedMessage } from "react-intl";
 
-const isEmailOrPasswordInvalid = (error) => {
-	return (
-		error.response.data.errors.Login[0] ||
-		error.response.data.errors.Password[0]
+const isFormInputInvalid = (error) => {
+	return error.response.data.status === 400;
+};
+
+const isFormEmpty = (error) => {
+	return !(
+		error.response.data.errors.Login === undefined &&
+		error.response.data.errors.Password === undefined &&
+		error.response.data.errors.ConfirmPassword === undefined
 	);
 };
 
-const isFormInputInvalid = (error) => {
-	return error.response.data.status === 400;
+const isEmailValid = (error) => {
+	return error.response.data.errors.Login === undefined;
+};
+
+const isPasswordValid = (error) => {
+	return error.response.data.errors.Password === undefined;
+};
+
+const isPasswordToConfirmValid = (error) => {
+	return error.response.data.errors.ConfirmPassword === undefined;
+};
+
+const isEmailAlreadyUsed = (error) => {
+	return error.response.status === 409;
 };
 
 const isFormInputWrong = (error) => {
@@ -19,17 +36,42 @@ const handleErrorResponse = (
 	error,
 	setErrorMessage,
 	setIsEmailInputInvalid,
-	setIsPasswordInputInvalid
+	setIsPasswordInputInvalid,
+	setIsPasswordConfirmedInputInvalid
 ) => {
-	console.log("Error: ",error)
 	if (isFormInputInvalid(error)) {
-		if (isEmailOrPasswordInvalid(error)) {
-			setErrorMessage(< FormattedMessage id = "EmailOrPasswordInvalidErrorMessage" />);
+		if (isFormEmpty(error)) {
+			console.log("empty");
 			setIsEmailInputInvalid(true);
 			setIsPasswordInputInvalid(true);
+			setIsPasswordConfirmedInputInvalid(true);
+			setErrorMessage(<FormattedMessage id="FormEmptyErrorMessage" />);
+		} else if (!isEmailValid(error) || !isPasswordValid(error)) {
+			console.log("Login or mdp error");
+			setIsEmailInputInvalid(true);
+			setIsPasswordInputInvalid(true);
+			setErrorMessage(
+				<FormattedMessage id="EmailOrPasswordInvalidErrorMessage" />
+			);
+		} else if (!isPasswordToConfirmValid(error)) {
+			console.log("Mdp to confirm error");
+			setIsPasswordConfirmedInputInvalid(true);
+			setErrorMessage(
+				<FormattedMessage id="PasswordToConfirmInvalidErrorMessage" />
+			);
 		}
+	} else if (isEmailAlreadyUsed(error)) {
+		setIsEmailInputInvalid(true);
+		setIsPasswordInputInvalid(true);
+		setErrorMessage(
+			<FormattedMessage id="EmailOrPasswordInvalidErrorMessage" />
+		);
 	} else if (isFormInputWrong(error)) {
-		setErrorMessage("Le mpd et mdp confirmé ne correspondent pas");
+		setIsPasswordConfirmedInputInvalid(true);
+		setIsPasswordInputInvalid(true);
+		setErrorMessage(
+			<FormattedMessage id="PasswordAndPasswordToConfirmNoMatchErrorMessage" />
+		);
 	}
 };
 
