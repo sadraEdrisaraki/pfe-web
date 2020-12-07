@@ -13,7 +13,10 @@
     "establishmentRadioButtonLabel":"Établissement",
     "nameInputLabel" :"Nom",
     "descriptionInputLabel":"Description",
-    "buttonSubmitQRCodeFormLabel":"Créer code QR"
+    "buttonSubmitQRCodeFormLabel":"Créer code QR",
+    "languageOptionFrenchLabel":"Français",
+    "languageOptionEnglishLabel":"Anglais",
+    "languageOptionDutchLabel":"Néerlandais"
 },
 "en":{
     "loginFormTitleLabel":"Login",
@@ -29,7 +32,10 @@
     "establishmentRadioButtonLabel":"Establishment",
     "nameInputLabel" :"Name",
     "descriptionInputLabel":"Description",
-    "buttonSubmitQRCodeFormLabel":"Create QR code"
+    "buttonSubmitQRCodeFormLabel":"Create QR code",
+    "languageOptionFrenchLabel":"French",
+    "languageOptionEnglishLabel":"English",
+    "languageOptionDutchLabel":"Dutch"
 },
 "nl":{
     "loginFormTitleLabel":"Aanmelden",
@@ -45,6 +51,9 @@
     "establishmentRadioButtonLabel":"Instelling",
     "nameInputLabel" :"Naam",
     "descriptionInputLabel":"Descriptie",
-    "buttonSubmitQRCodeFormLabel":"QR-Code maken"
+    "buttonSubmitQRCodeFormLabel":"QR-Code maken",
+    "languageOptionFrenchLabel":"Frans",
+    "languageOptionEnglishLabel":"Engels",
+    "languageOptionDutchLabel":"Nederlands"
 }
 }
