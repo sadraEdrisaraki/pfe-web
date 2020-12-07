@@ -16,7 +16,7 @@ const LoginContainer = () => {
 
 	const saveToken = (response) => {
 		localStorage.setItem("token", response);
-		setLoggedIn(true)
+		setLoggedIn(true);
 		setNewEmail("");
 		setNewPassword("");
 	};
@@ -41,30 +41,31 @@ const LoginContainer = () => {
 
 	const handleLogin = (event) => {
 		event.preventDefault();
-		console.log(
-			"connexion:",
-			newEmail,
-			newPassword
-		);
+		console.log("connexion:", newEmail, newPassword);
 		login(newEmail, newPassword);
 	};
 
 	const clearErrorMessages = () => {
-		setErrorMessage("")
-		setIsEmailInputInvalid(false)
-		setIsPasswordInputInvalid(false)
-	}
+		setErrorMessage("");
+		setIsEmailInputInvalid(false);
+		setIsPasswordInputInvalid(false);
+	};
 
 	useEffect(() => {
 		console.log("effect");
 		const clearNotification = () => clearErrorMessages();
-		const handler = setTimeout(clearNotification,5000);
+		const handler = setTimeout(clearNotification, 5000);
 		const abortHandler = () => clearTimeout(handler);
 		return abortHandler;
 	}, [errorMessage]);
 
+	/*const getRole = () => {
+		return participantService.getRoleByToken();
+	}*/
+
 	if (loggedIn) {
-		return <Redirect to="/establishment"/>
+		//console.log("role : ",getRole())
+		return <Redirect to="/establishment" />;
 	}
 
 	return (
