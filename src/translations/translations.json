@@ -10,7 +10,10 @@
     "registerFormTitleLabel":"S'inscrire",
     "buttonSubmitRegisterFormLabel": "S'inscrire",
     "doctorRadioButtonLabel":"Médecin",
-    "establishmentRadioButtonLabel":"Établissement"
+    "establishmentRadioButtonLabel":"Établissement",
+    "nameInputLabel" :"Nom",
+    "descriptionInputLabel":"Description",
+    "buttonSubmitQRCodeFormLabel":"Créer code QR"
 },
 "en":{
     "loginFormTitleLabel":"Login",
@@ -23,19 +26,25 @@
     "registerFormTitleLabel":"Register",
     "buttonSubmitRegisterFormLabel": "Register",
     "doctorRadioButtonLabel":"Doctor",
-    "establishmentRadioButtonLabel":"Establishment"
+    "establishmentRadioButtonLabel":"Establishment",
+    "nameInputLabel" :"Name",
+    "descriptionInputLabel":"Description",
+    "buttonSubmitQRCodeFormLabel":"Create QR code"
 },
 "nl":{
     "loginFormTitleLabel":"Aanmelden",
     "emailInputLabel":"E-mail",
     "passwordInputLabel":"Wachtwoord",
-    "passwordToConfirmInputLabel":"Bevestigen wachtwoord",
+    "passwordToConfirmInputLabel":"Wachtwoord bevestigen",
     "buttonSubmitLoginFormLabel": "Aanmelden",
     "buttonRegisterLinkLabel": "Registreren",
     "buttonLoginLinkLabel": "Aanmelden",
     "registerFormTitleLabel":"Registreren",
     "buttonSubmitRegisterFormLabel": "Registreren",
     "doctorRadioButtonLabel":"Dokter",
-    "establishmentRadioButtonLabel":"Instelling"
+    "establishmentRadioButtonLabel":"Instelling",
+    "nameInputLabel" :"Naam",
+    "descriptionInputLabel":"Descriptie",
+    "buttonSubmitQRCodeFormLabel":"QR-Code maken"
 }
 }
