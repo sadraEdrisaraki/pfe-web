@@ -1,0 +1,41 @@
+{
+"fr":{
+    "loginFormTitleLabel":"Se connecter",
+    "emailInputLabel":"Email",
+    "passwordInputLabel":"Mot de passe",
+    "passwordToConfirmInputLabel":"Confirmer mot de passe",
+    "buttonSubmitLoginFormLabel": "Se connecter",
+    "buttonRegisterLinkLabel": "S'inscrire",
+    "buttonLoginLinkLabel": "Se connecter",
+    "registerFormTitleLabel":"S'inscrire",
+    "buttonSubmitRegisterFormLabel": "S'inscrire",
+    "doctorRadioButtonLabel":"Médecin",
+    "establishmentRadioButtonLabel":"Établissement"
+},
+"en":{
+    "loginFormTitleLabel":"Login",
+    "emailInputLabel":"Email",
+    "passwordInputLabel":"Password",
+    "passwordToConfirmInputLabel":"Confirm password",
+    "buttonSubmitLoginFormLabel": "Login",
+    "buttonRegisterLinkLabel": "Register",
+    "buttonLoginLinkLabel": "Login",
+    "registerFormTitleLabel":"Register",
+    "buttonSubmitRegisterFormLabel": "Register",
+    "doctorRadioButtonLabel":"Doctor",
+    "establishmentRadioButtonLabel":"Establishment"
+},
+"nl":{
+    "loginFormTitleLabel":"Aanmelden",
+    "emailInputLabel":"E-mail",
+    "passwordInputLabel":"Wachtwoord",
+    "passwordToConfirmInputLabel":"Bevestigen wachtwoord",
+    "buttonSubmitLoginFormLabel": "Aanmelden",
+    "buttonRegisterLinkLabel": "Registreren",
+    "buttonLoginLinkLabel": "Aanmelden",
+    "registerFormTitleLabel":"Registreren",
+    "buttonSubmitRegisterFormLabel": "Registreren",
+    "doctorRadioButtonLabel":"Dokter",
+    "establishmentRadioButtonLabel":"Instelling"
+}
+}

@@ -1,24 +1,39 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 
 import participantService from "services/ParticipantService.js";
 
 import Register from "components/Register/Register";
+import { handleErrorResponse } from "../../utils/SharedFunctions";
 
-const RegisterContainer = (props) => {
-	const [newRole, setNewRole] = useState("medecin");
+const RegisterContainer = () => {
+	const [newRole, setNewRole] = useState("Doctor");
 	const [newEmail, setNewEmail] = useState("");
 	const [newPassword, setNewPassword] = useState("");
+	const [passwordConfirmed, setPasswordConfirmed] = useState("");
+	const [errorMessage, setErrorMessage] = useState("");
 
-    const addParticipant = (role, email, password) => {
+	//TODO redirect */* role
+	const checkTokenAndRedirect = () => {
+		if (localStorage.getItem("token") !== null)
+			<Redirect to="/establishment" />;
+	};
+
+	const saveToken = (response) => {
+		localStorage.setItem("token", response);
+		checkTokenAndRedirect();
+	};
+
+	const addParticipant = (role, email, password) => {
 		const payload = {
 			login: newEmail,
 			password: newPassword,
-			participant_Type:newRole
+			participant_Type: newRole,
 		};
 		participantService
 			.register(payload)
-			.then((response) => console.log(response));
-		// TO DO gestion erreurs -> handler middleware?
+			.then((response) => saveToken(response))
+			.catch((error) => handleErrorResponse(error,setErrorMessage));
 	};
 
 	const handleAddParticipant = (event) => {
@@ -27,7 +42,8 @@ const RegisterContainer = (props) => {
 		setNewRole("");
 		setNewEmail("");
 		setNewPassword("");
-		console.log(newRole, newEmail, newPassword)
+		setPasswordConfirmed("");
+		console.log(newRole, newEmail, newPassword);
 	};
 
 	const handleRoleChange = (event) => {
@@ -35,23 +51,26 @@ const RegisterContainer = (props) => {
 		setNewRole(event.target.value);
 	};
 
-	const handleEmailChange = (event) => {
-		setNewEmail(event.target.value);
-	};
+	useEffect(() => {
+		console.log("effect");
+		const clearNotification = () => setErrorMessage("");
+		const handler = setTimeout(clearNotification, 10_000);
+		const abortHandler = () => clearTimeout(handler);
+		return abortHandler;
+	}, [errorMessage]);
 
-	const handlePasswordChange = (event) => {
-		setNewPassword(event.target.value);
-    };
-    
 	return (
 		<Register
 			handleAddParticipant={handleAddParticipant}
 			handleRoleChange={handleRoleChange}
-			handleEmailChange={handleEmailChange}
-			handlePasswordChange={handlePasswordChange}
 			newRole={newRole}
 			newEmail={newEmail}
+			setNewEmail={setNewEmail}
 			newPassword={newPassword}
+			setNewPassword={setNewPassword}
+			passwordConfirmed={passwordConfirmed}
+			setPasswordConfirmed={setPasswordConfirmed}
+			errorMessage={errorMessage}
 		/>
 	);
 };

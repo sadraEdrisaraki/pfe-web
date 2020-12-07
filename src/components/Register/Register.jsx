@@ -1,50 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
+import { FormattedMessage } from "react-intl";
+import "./style.css";
+
 import { Link } from "react-router-dom";
 
-import "./style.css";
+import Email from "components/SharedComponents/FormItems/Email";
+import Password from "components/SharedComponents/FormItems/Password";
+import ErrorMessage from "components/SharedComponents/FormItems/ErrorMessage";
 
 const Register = ({
 	handleAddParticipant,
 	handleRoleChange,
-	handleEmailChange,
-	handlePasswordChange,
 	newRole,
 	newEmail,
+	setNewEmail,
 	newPassword,
+	setNewPassword,
+	passwordConfirmed,
+	setPasswordConfirmed,
+	errorMessage,
 }) => {
 	return (
 		<div className="register-page">
 			<div className="register-container">
-				<h1>S'inscrire</h1>
+				<h1><FormattedMessage id="registerFormTitleLabel"/></h1>
+				<ErrorMessage errorMessage={errorMessage} />
 				<form onSubmit={handleAddParticipant}>
-					<div className="mail">
-						<input
-							className="mail-input"
-							type="text"
-							value={newEmail}
-							onChange={handleEmailChange}
-							placeholder="adresse mail..."
-						/>
-					</div>
-					<div className="passwd">
-						<input
-							className="passwd-input"
-							type="text"
-							value={newPassword}
-							onChange={handlePasswordChange}
-							placeholder="mot-de-passe..."
-						/>
-					</div>
-					<div>
-						Confirm Password
-						<input
-							type="text"
-							/*value={newPassword}
-							onChange={handlePasswordChange}*/
-						/>
-					</div>
+					<Email newEmail={newEmail} setNewEmail={setNewEmail} />
+					<Password
+						inputLabel={<FormattedMessage id="passwordInputLabel"/>}
+						newPassword={newPassword}
+						setNewPassword={setNewPassword}
+					/>
+					<Password
+						inputLabel={<FormattedMessage id="passwordToConfirmInputLabel"/>}
+						newPassword={passwordConfirmed}
+						setNewPassword={setPasswordConfirmed}
+					/>
 					<button className="btn-register" type="submit">
-						S'inscrire
+					<FormattedMessage id="buttonSubmitRegisterFormLabel"/>
 					</button>
 					<h4>Êtes-vous</h4>
 					<div>
@@ -55,7 +49,7 @@ const Register = ({
 							onChange={handleRoleChange}
 							name="role"
 						/>
-						Médecin
+						{<FormattedMessage id="doctorRadioButtonLabel"/>}
 						<input
 							type="radio"
 							value="Establishment"
@@ -63,12 +57,12 @@ const Register = ({
 							onChange={handleRoleChange}
 							name="role"
 						/>
-						Établissement
+						{<FormattedMessage id="establishmentRadioButtonLabel"/>}
 					</div>
 				</form>
 				<br />
 				<button type="submit">
-					<Link to="/">Se connecter</Link>
+					<Link to="/"><FormattedMessage id="buttonLoginLinkLabel"/></Link>
 				</button>
 			</div>
 		</div>

@@ -4,6 +4,7 @@ import { Redirect, useHistory } from "react-router-dom";
 import participantService from "services/ParticipantService.js";
 
 import Login from "components/Login/Login";
+import { handleErrorResponse } from "../../utils/SharedFunctions";
 
 const LoginContainer = () => {
 	const [newEmail, setNewEmail] = useState("");
@@ -11,6 +12,18 @@ const LoginContainer = () => {
 	const [errorMessage, setErrorMessage] = useState("");
 	const [redirectPath, setRedirectPath] = useState("");
 	let history = useHistory();
+
+	//TODO redirect */* role
+	const checkTokenAndRedirect = () => {
+		if (localStorage.getItem("token")) {
+			setRedirectPath("establishment");
+		}
+	};
+
+	const saveToken = (response) => {
+		localStorage.setItem("token", response);
+		checkTokenAndRedirect();
+	};
 
 	const login = (email, password) => {
 		const payload = {
@@ -20,16 +33,8 @@ const LoginContainer = () => {
 
 		participantService
 			.login(payload)
-			.then((response) => {
-				setRedirectPath("establishment");
-			})
-			.catch((error) =>
-				setErrorMessage(
-					error.response.data.errors.Login[0] +
-						error.response.data.errors.Password[0]
-				)
-			);
-		localStorage.setItem("testLocal", "testdatainlocalstorage");
+			.then((response) => saveToken(response))
+			.catch((error) => handleErrorResponse(error,setErrorMessage));
 	};
 
 	const handleLogin = (event) => {
