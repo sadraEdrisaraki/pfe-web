@@ -1,11 +1,15 @@
-import React, {useState} from "react"
+import React, {useContext} from "react"
 import EstablishmentHistory from "components/Establishment/EstablishmentMenu/EstablishmentHistory/EstablishmentHistory"
+import QRCodeContext from "contexts/QRCodeContext"
 
 const EstablishmentHistoryContainer = () => {
 
+    const {
+        getAllQR
+    } = useContext(QRCodeContext)
 
     return (
-        <EstablishmentHistory />
+        <EstablishmentHistory listeItems={getAllQR()} />
     )
 }
 

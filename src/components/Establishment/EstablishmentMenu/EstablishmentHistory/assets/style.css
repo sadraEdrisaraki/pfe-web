@@ -5,4 +5,40 @@
     width: 50%;
     transition: 0.5s;
     background-color: white;
+    overflow-y: auto;
+}
+
+.history-form-container{
+    position: relative;
+    text-align: center;
+    left:0px;
+}
+
+.item-container{
+    position: relative;
+    left:0px;
+    transform: translateX(-50%);
+    margin-top: 100px;
+    cursor: pointer;
+    width: fit-content;
+    transition: 0.5s;
+    display: inline-block;
+    margin-left: 25%;
+}
+
+.item-container:hover{
+    opacity: 0.5;
+}
+
+.item-qr , .item-name , .item-desc{
+    transform: translatex(-50%);
+}
+
+.search-container{
+    position: relative;
+    top: 50px;
+}
+
+.item-desc{
+    max-width: 130px;
 }
