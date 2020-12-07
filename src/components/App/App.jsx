@@ -13,6 +13,7 @@ import QRCodeContext from "contexts/QRCodeContext";
 import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage";
+import SelectLanguage from "components/SharedComponents/SelectLanguage"
 
 const App = () => {
 	const { language } = useContext(QRCodeContext);
@@ -24,6 +25,7 @@ const App = () => {
 	return (
 		<IntlProvider locale="fr" messages={translations[language]}>
 			<div className="app">
+			<SelectLanguage/>
 				<Router>
 					<Switch>
 						<Route path="/establishment">
