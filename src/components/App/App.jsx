@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { IntlProvider } from "react-intl";
 import {
 	BrowserRouter as Router,
@@ -15,44 +15,44 @@ import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage";
 import SelectLanguage from "components/SharedComponents/SelectLanguage";
 import Doctor from "components/Doctor/Doctor";
-import Logout from "components/Logout/Logout"
+import Logout from "components/Logout/Logout";
 
 const App = () => {
-	const { language,role} = useContext(QRCodeContext);
+	const { language, role } = useContext(QRCodeContext);
 
-	console.log("role", role)
-	
+	console.log("role", role);
+
 	const isDoctor = () => {
-		return role==="Doctor"
-	}
+		return role === "Doctor";
+	};
 
 	const isEstablishment = () => {
-		return role==="Establishment"
-	}
+		return role === "Establishment";
+	};
 
 	const redirectIfRoleKnown = () => {
 		if (isDoctor()) {
-			<Redirect to="/doctor" />
+			<Redirect to="/doctor" />;
 		} else if (isEstablishment()) {
-			<Redirect to="/establishment" />
+			<Redirect to="/establishment" />;
 		}
-	}
+	};
 
 	return (
 		<IntlProvider locale="fr" messages={translations[language]}>
 			<div className="app">
 				<div className="lang-selector">
 					<SelectLanguage />
-					{ role!=="" ? <Logout /> :""}
+					{role !== "" ? <Logout /> : ""}
 				</div>
 				<Router>
 					{redirectIfRoleKnown()}
 					<Switch>
 						<Route path="/doctor">
-						{isDoctor() ? <Doctor /> : <Redirect to="/" />}	
+							{isDoctor() ? <Doctor /> : <Redirect to="/" />}
 						</Route>
 						<Route path="/establishment">
-						{isEstablishment() ? <EstablishmentPage /> : <Redirect to="/" />}	
+							{isEstablishment() ? <EstablishmentPage /> : <Redirect to="/" />}
 						</Route>
 						<Route path="/register">
 							<RegisterContainer />
