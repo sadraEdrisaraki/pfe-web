@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
+import { handleErrorResponse } from "../../utils/SharedFunctions";
 
+import QRCodeContext from "contexts/QRCodeContext";
 import participantService from "services/ParticipantService.js";
 
 import Login from "components/Login/Login";
-import { handleErrorResponse } from "../../utils/SharedFunctions";
 
 const LoginContainer = () => {
 	const [newEmail, setNewEmail] = useState("");
@@ -13,12 +14,23 @@ const LoginContainer = () => {
 	const [isPasswordInputInvalid, setIsPasswordInputInvalid] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
 	const [loggedIn, setLoggedIn] = useState(false);
+	const { role, getRole } = useContext(QRCodeContext);
+
+	const clearFormInputs = () => {
+		setNewEmail("");
+		setNewPassword("");
+	};
+
+	const clearErrorMessages = () => {
+		setErrorMessage("");
+		setIsEmailInputInvalid(false);
+		setIsPasswordInputInvalid(false);
+	};
 
 	const saveToken = (response) => {
 		localStorage.setItem("token", response);
 		setLoggedIn(true);
-		setNewEmail("");
-		setNewPassword("");
+		clearFormInputs();
 	};
 
 	const login = (email, password) => {
@@ -45,12 +57,6 @@ const LoginContainer = () => {
 		login(newEmail, newPassword);
 	};
 
-	const clearErrorMessages = () => {
-		setErrorMessage("");
-		setIsEmailInputInvalid(false);
-		setIsPasswordInputInvalid(false);
-	};
-
 	useEffect(() => {
 		console.log("effect");
 		const clearNotification = () => clearErrorMessages();
@@ -59,13 +65,16 @@ const LoginContainer = () => {
 		return abortHandler;
 	}, [errorMessage]);
 
-	/*const getRole = () => {
-		return participantService.getRoleByToken();
-	}*/
-
 	if (loggedIn) {
-		//console.log("role : ",getRole())
-		return <Redirect to="/establishment" />;
+		getRole();
+		console.log("role", role);
+		if (role === "Doctor") {
+			console.log("redirigé => doctor");
+			return <Redirect to="/doctor" />;
+		} else if (role === "Establishment") {
+			console.log("redirigé => establishment");
+			return <Redirect to="/establishment" />;
+		}
 	}
 
 	return (

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState,useContext } from "react";
 import { IntlProvider } from "react-intl";
 import {
 	BrowserRouter as Router,
@@ -13,37 +13,35 @@ import QRCodeContext from "contexts/QRCodeContext";
 import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage";
-import SelectLanguage from "components/SharedComponents/SelectLanguage"
+import SelectLanguage from "components/SharedComponents/SelectLanguage";
+import Doctor from "components/Doctor/Doctor";
+import participantService from "services/ParticipantService.js";
 
 const App = () => {
 	const { language } = useContext(QRCodeContext);
-
-	const isValidToken = () => {
-		return localStorage.getItem("token") !== null;
-	};
+	
 
 	return (
 		<IntlProvider locale="fr" messages={translations[language]}>
 			<div className="app">
-			<SelectLanguage/>
+				<SelectLanguage />
 				<Router>
 					<Switch>
+						<Route path="/doctor">
+							<Doctor />
+						</Route>
 						<Route path="/establishment">
 							<EstablishmentPage />
 						</Route>
 						<Route path="/register">
-						{isValidToken() ? (
-								<Redirect to="/establishment" />
-							) : (
+						
 								<RegisterContainer />
-							)}
+							
 						</Route>
 						<Route path="/">
-							{isValidToken() ? (
-								<Redirect to="/establishment" />
-							) : (
+							
 								<LoginContainer />
-							)}
+						
 						</Route>
 					</Switch>
 				</Router>
