@@ -4,7 +4,7 @@ const Password = ({
 	inputLabel,
 	newPassword,
 	setNewPassword,
-	isPasswordInputInvalid
+	isPasswordInputInvalid,
 }) => {
 	const handlePasswordChange = (event) => {
 		event.preventDefault();
@@ -15,6 +15,7 @@ const Password = ({
 		<div>
 			<label>
 				{inputLabel}
+				<br />
 				<input
 					type="text"
 					className="passwd-input"

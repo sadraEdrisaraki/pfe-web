@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { FormattedMessage } from "react-intl";
 
 import QRCodeContext from "contexts/QRCodeContext";
 
@@ -13,14 +12,9 @@ const SelectLanguage = () => {
 
 	return (
 		<select value={language} onChange={handleLanguageChange}>
-			<option value="fr">Français
-			</option>
-			<option value="en">
-				English
-			</option>
-			<option value="nl">
-				Nederlands
-			</option>
+			<option value="fr">Français</option>
+			<option value="en">English</option>
+			<option value="nl">Nederlands</option>
 		</select>
 	);
 };

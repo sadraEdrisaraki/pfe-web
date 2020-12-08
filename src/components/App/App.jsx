@@ -8,8 +8,10 @@ import {
 } from "react-router-dom";
 
 import "./style.css";
-import translations from "../../translations/translations.json";
+
 import QRCodeContext from "contexts/QRCodeContext";
+import translations from "../../translations/translations.json";
+
 import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage";
@@ -19,8 +21,6 @@ import Logout from "components/Logout/Logout";
 
 const App = () => {
 	const { language, role } = useContext(QRCodeContext);
-
-	console.log("role", role);
 
 	const isDoctor = () => {
 		return role === "Doctor";
