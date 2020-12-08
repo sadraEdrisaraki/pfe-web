@@ -1,5 +1,6 @@
 import React, {useState} from "react"
-import { useReactToPrint }  from "react-to-print"
+import { useReactToPrint } from "react-to-print"
+import { FormattedMessage } from "react-intl";
 import "./assets/style.css"
 
 import EstablishmentHistoryItem from "components/Establishment/EstablishmentMenu/EstablishmentHistory/EstablishmentHistoryItem"
@@ -15,7 +16,11 @@ const EstablishmentHistory = ({listeItems}) => {
     return (
         <div className="history-form-container">
             <div className="search-container">
-                Search : <input type="text" className="searc-text" onChange={handleChangeSearch}></input>
+            <label >
+            <FormattedMessage id="buttonSearchQRCodeLabel" />
+              
+                    <input type="text" className="searc-text" onChange={handleChangeSearch}></input>
+                    </label>
             </div>
             {listeItems.filter(function(item){
                 if(  (item.name != undefined && item.name.includes(filter)) || (item.description != undefined && item.description.includes(filter))){

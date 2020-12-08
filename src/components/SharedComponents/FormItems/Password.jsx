@@ -1,4 +1,5 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 const Password = ({
 	inputLabel,
@@ -25,7 +26,7 @@ const Password = ({
 					aria-invalid={isPasswordInputInvalid}
 				/><br/>
 				<span className="help">
-				Entre 5 et 20 caractères
+				<FormattedMessage id="passwordInputHelpLabel" />
 				</span>
 			</label>
 		</div>
