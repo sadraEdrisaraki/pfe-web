@@ -6,6 +6,7 @@
     transition: 0.5s;
     background-color: white;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .history-form-container{

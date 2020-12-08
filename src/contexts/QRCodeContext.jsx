@@ -16,7 +16,7 @@ const ProviderWrapper = (props) => {
 			.then((response) => setRole(response.role))
 			.catch((error) => console.log(error));
 	};
-	/*
+	
 	const initialLoad = () => {
 		
 		QRCodeService
@@ -29,7 +29,7 @@ const ProviderWrapper = (props) => {
 	}
 
 	useEffect(initialLoad, [])
-*/
+
 	const getAllQR = () => {
 		return listeItems;
 	};
@@ -38,7 +38,12 @@ const ProviderWrapper = (props) => {
 		QRCodeService.create({ qrCodeID: id, name: name, description: desc })
 			.then((response) => {
 				console.log("creation réussi");
-				console.log(response);
+				console.log(response)
+				initialLoad()
+			})
+			.catch(reason => {
+				console.log("creation échoué")
+				console.log(reason)
 			})
 			.catch((reason) => {
 				console.log("creation échoué");

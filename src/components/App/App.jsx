@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { IntlProvider } from "react-intl";
 import {
 	BrowserRouter as Router,
@@ -19,12 +19,13 @@ import participantService from "services/ParticipantService.js";
 
 const App = () => {
 	const { language } = useContext(QRCodeContext);
-	
 
 	return (
 		<IntlProvider locale="fr" messages={translations[language]}>
 			<div className="app">
-				<SelectLanguage />
+				<div className="lang-selector">
+					<SelectLanguage />
+				</div>
 				<Router>
 					<Switch>
 						<Route path="/doctor">
@@ -34,14 +35,10 @@ const App = () => {
 							<EstablishmentPage />
 						</Route>
 						<Route path="/register">
-						
-								<RegisterContainer />
-							
+							<RegisterContainer />
 						</Route>
 						<Route path="/">
-							
-								<LoginContainer />
-						
+							<LoginContainer />
 						</Route>
 					</Switch>
 				</Router>

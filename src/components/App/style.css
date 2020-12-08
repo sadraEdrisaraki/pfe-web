@@ -17,3 +17,12 @@ body{
     height: 100%;
     width: 100%;
 }
+
+.lang-selector{
+    position: absolute;
+    color: white;
+    z-index: 1;
+    opacity: 1;
+    top: 96%;
+    margin-left:10px
+}

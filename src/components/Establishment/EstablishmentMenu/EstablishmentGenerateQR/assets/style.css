@@ -13,6 +13,7 @@
     top: 25%;
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
 }
 
 .input-name{
@@ -38,8 +39,7 @@
 .btn-generateqr{
     position: relative;
     margin-top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    
 }
 
 .btn-generateqr{
@@ -55,4 +55,8 @@
     transition: 0.5s;
     opacity: 0;
     max-width: fit-content;
+}
+
+.label-generate{
+    text-align: center;
 }
