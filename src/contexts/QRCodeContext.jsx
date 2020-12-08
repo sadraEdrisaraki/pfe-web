@@ -30,6 +30,7 @@ const ProviderWrapper = (props) => {
 			.then( response => {
 				console.log("creation réussi");
 				console.log(response)
+				initialLoad()
 			})
 			.catch(reason => {
 				console.log("creation échoué")

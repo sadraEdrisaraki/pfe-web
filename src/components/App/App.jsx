@@ -25,7 +25,9 @@ const App = () => {
 	return (
 		<IntlProvider locale="fr" messages={translations[language]}>
 			<div className="app">
-			<SelectLanguage/>
+				<div className="lang-selector">
+					<SelectLanguage />
+				</div>
 				<Router>
 					<Switch>
 						<Route path="/establishment">

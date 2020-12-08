@@ -53,16 +53,17 @@ const EstablishmentGenerateQR = ({createQR}) => {
             </div>
             
             <div className="form-container">
-                <label>
+                <label className="label-generate">
                 <FormattedMessage id="nameInputLabel" />
                     <input type="text" className="input-name form-input" onChange={handleChangeName} value={name} />
-                    </label>
-                <br />
-                <label>
-                <FormattedMessage id="descriptionInputLabel" />
-                <input type="text" className="input-desc form-input" onChange={handleChangeDescription} value={description}/>
+                </label>
+                <br/>
+                <label className="label-generate">
+                    <FormattedMessage id="descriptionInputLabel" />
+                    <br/>
+                    <input type="text" className="input-desc form-input" onChange={handleChangeDescription} value={description}/>
                 </label>               
-                    <br />
+                <br/>
                 <br/>
                 <br/>
                 <button className="btn-generateqr" onClick={handleClick}><FormattedMessage id="buttonSubmitQRCodeFormLabel" /></button>
