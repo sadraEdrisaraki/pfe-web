@@ -1,23 +1,21 @@
 import { FormattedMessage } from "react-intl";
 
 const isFormInputInvalid = (error) => {
-	return error.response.data.status === 400;
+	return error.response.status === 400;
 };
 
-const isFormEmpty = (error) => {
-	return !(
+const isWrongEmailOrPassword = (error) => {
+	return (
+		error.response.status === 400 && error.response.data.errors === undefined
+	);
+};
+
+const isFormFilled = (error) => {
+	return (
 		error.response.data.errors.Login === undefined &&
 		error.response.data.errors.Password === undefined &&
 		error.response.data.errors.ConfirmPassword === undefined
 	);
-};
-
-const isEmailValid = (error) => {
-	return error.response.data.errors.Login === undefined;
-};
-
-const isPasswordValid = (error) => {
-	return error.response.data.errors.Password === undefined;
 };
 
 const isPasswordToConfirmValid = (error) => {
@@ -29,11 +27,7 @@ const isEmailAlreadyUsed = (error) => {
 };
 
 const isFormInputWrong = (error) => {
-	return error.response.data.status === 412;
-};
-
-const isPasswordWrong = (error) => {
-	return error.response.status === 400;
+	return error.response.status === 412;
 };
 
 const handleErrorResponse = (
@@ -43,15 +37,15 @@ const handleErrorResponse = (
 	setIsPasswordInputInvalid,
 	setIsPasswordConfirmedInputInvalid
 ) => {
-	if (isPasswordWrong(error)) {
-		console.log("Login or mdp error");
-		setIsEmailInputInvalid(true);
-		setIsPasswordInputInvalid(true);
-		setErrorMessage(
-			<FormattedMessage id="emailOrPasswordInvalidErrorMessage" />
-		);
-	} else if (isFormInputInvalid(error)) {
-		if (isFormEmpty(error)) {
+	if (isFormInputInvalid(error)) {
+		if (isWrongEmailOrPassword(error)) {
+			console.log("Login or mdp error 2");
+			setIsEmailInputInvalid(true);
+			setIsPasswordInputInvalid(true);
+			setErrorMessage(
+				<FormattedMessage id="emailOrPasswordInvalidErrorMessage" />
+			);
+		} else if (!isFormFilled(error)) {
 			console.log("empty");
 			setIsEmailInputInvalid(true);
 			setIsPasswordInputInvalid(true);
@@ -61,13 +55,6 @@ const handleErrorResponse = (
 			setIsPasswordConfirmedInputInvalid(true);
 			setErrorMessage(
 				<FormattedMessage id="passwordToConfirmInvalidErrorMessage" />
-			);
-		} else {
-			console.log("Login or mdp error");
-			setIsEmailInputInvalid(true);
-			setIsPasswordInputInvalid(true);
-			setErrorMessage(
-				<FormattedMessage id="emailOrPasswordInvalidErrorMessage" />
 			);
 		}
 	} else if (isEmailAlreadyUsed(error)) {
