@@ -14,7 +14,7 @@ import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage";
 import SelectLanguage from "components/SharedComponents/SelectLanguage";
-import Doctor from "components/Doctor/Doctor";
+import MedecinPageContainer from "components/Medecin/MedecinPage/MedecinPageContainer";
 import participantService from "services/ParticipantService.js";
 
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
 				<Router>
 					<Switch>
 						<Route path="/doctor">
-							<Doctor />
+							<MedecinPageContainer />
 						</Route>
 						<Route path="/establishment">
 							<EstablishmentPage />
