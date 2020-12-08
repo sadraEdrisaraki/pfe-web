@@ -50,7 +50,7 @@ const Register = ({
 					/>
 					<fieldset>
 						<legend>
-							<h4>Êtes-vous</h4>
+							<h4><FormattedMessage id="titleRadioButtonLabel" /></h4>
 						</legend>
 						<input
 							type="radio"
@@ -58,7 +58,7 @@ const Register = ({
 							checked={newRole === "Doctor"}
 							onChange={handleRoleChange}
 							name="role"
-						/>
+						/>{" "}
 						<label>{<FormattedMessage id="doctorRadioButtonLabel" />}</label>{" "}
 						<input
 							type="radio"
@@ -66,7 +66,7 @@ const Register = ({
 							checked={newRole === "Establishment"}
 							onChange={handleRoleChange}
 							name="role"
-						/>
+						/>{" "}
 						<label>
 							{<FormattedMessage id="establishmentRadioButtonLabel" />}
 						</label>
