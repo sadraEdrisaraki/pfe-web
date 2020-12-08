@@ -37,14 +37,13 @@ const App = () => {
 			<Redirect to="/establishment" />;
 		}
 	};
-
 	return (
 		<IntlProvider locale="fr" messages={translations[language]}>
 			<div className="app">
 				<div className="lang-selector">
 					<SelectLanguage />
-					{role !== "" ? <Logout /> : ""}
 				</div>
+				{role !== "" ? <Logout /> : ""}
 				<Router>
 					{redirectIfRoleKnown()}
 					<Switch>

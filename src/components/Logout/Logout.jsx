@@ -13,7 +13,7 @@ const Logout = () => {
 
 	return (
 		<div>
-			<button type="button" onClick={handleLogout}>
+			<button className="btn-warning" type="button" onClick={handleLogout}>
             <FormattedMessage id="buttonLogoutLabel" />
 			</button>
 		</div>

@@ -27,7 +27,7 @@ const ProviderWrapper = (props) => {
 		});
 	};
 
-	useEffect(initialLoad, []);
+	//useEffect(initialLoad, []);
 
 	const getAllQR = () => {
 		return listeItems;
