@@ -11,8 +11,6 @@ const SelectLanguage = () => {
 		setLanguage(event.target.value);
 	};
 
-	console.log(<FormattedMessage id="languageOptionFrenchLabel" />)
-
 	/*
 <option value="fr"><FormattedMessage id="languageOptionFrenchLabel" />
 			</option>

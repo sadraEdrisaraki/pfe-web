@@ -6,7 +6,7 @@ const Context = React.createContext(null);
 const ProviderWrapper = (props) => {
 	const [language, setLanguage] = useState("fr");
 	const [listeItems , setListeItems] = useState([])
-
+/*
 	const initialLoad = () => {
 		
 		QRCodeService
@@ -19,7 +19,7 @@ const ProviderWrapper = (props) => {
 	}
 
 	useEffect(initialLoad, [])
-
+*/
 	const getAllQR = () => {
 		return listeItems
 	}
