@@ -11,3 +11,8 @@
     height: 100%;
     transform: translateY(40%);
 }
+
+.help{
+    font-size:small;
+    color: rgb(61, 60, 60);
+}

@@ -23,7 +23,10 @@ const Password = ({
 					onChange={handlePasswordChange}
 					aria-required="true"
 					aria-invalid={isPasswordInputInvalid}
-				/>
+				/><br/>
+				<span className="help">
+				Entre 5 et 20 caractères
+				</span>
 			</label>
 		</div>
 	);
