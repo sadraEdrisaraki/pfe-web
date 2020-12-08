@@ -23,7 +23,8 @@
     "emailInvalidErrorMessage":"Veuillez indiquer un email",
     "passwordInvalidErrorMessage":"Veuillez indiquer un mot de passe",
     "titleRadioButtonLabel":"Êtes-vous",
-    "buttonSearchQRCodeLabel":"Rechercher : "
+    "buttonSearchQRCodeLabel":"Rechercher : ",
+    "passwordInputHelpLabel":"Entre 5 et 20 caractères"
 },
 "en":{
     "loginFormTitleLabel":"Login",
@@ -49,7 +50,8 @@
     "emailInvalidErrorMessage":"Please specify an email",
     "passwordInvalidErrorMessage":"Please specify a password",
     "titleRadioButtonLabel":"Are you",
-    "buttonSearchQRCodeLabel":"Search : "
+    "buttonSearchQRCodeLabel":"Search : ",
+    "passwordInputHelpLabel":"Between 5 and 20 caracters"
 },
 "nl":{
     "loginFormTitleLabel":"Aanmelden",
@@ -75,6 +77,7 @@
     "emailInvalidErrorMessage":"Astublieft, geef een e-mail",
     "passwordInvalidErrorMessage":"Astublieft, geef een wachtwoord",
     "titleRadioButtonLabel":"Bent u",
-    "buttonSearchQRCodeLabel":"Zoek : "
+    "buttonSearchQRCodeLabel":"Zoek : ",
+    "passwordInputHelpLabel":"Tussen 5 en 20 tekens"
 }
 }
