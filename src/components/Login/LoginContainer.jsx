@@ -13,8 +13,7 @@ const LoginContainer = () => {
 	const [newPassword, setNewPassword] = useState("");
 	const [isPasswordInputInvalid, setIsPasswordInputInvalid] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
-	const [loggedIn, setLoggedIn] = useState(false);
-	const { role, getRole } = useContext(QRCodeContext);
+	const { setLoggedIn, role } = useContext(QRCodeContext);
 
 	const clearFormInputs = () => {
 		setNewEmail("");
@@ -65,16 +64,12 @@ const LoginContainer = () => {
 		return abortHandler;
 	}, [errorMessage]);
 
-	if (loggedIn) {
-		getRole();
-		console.log("role", role);
-		if (role === "Doctor") {
-			console.log("redirigé => doctor");
-			return <Redirect to="/doctor" />;
-		} else if (role === "Establishment") {
-			console.log("redirigé => establishment");
-			return <Redirect to="/establishment" />;
-		}
+	if (role === "Doctor") {
+		console.log("redirigé => doctor");
+		return <Redirect to="/doctor" />;
+	} else if (role === "Establishment") {
+		console.log("redirigé => establishment");
+		return <Redirect to="/establishment"/>;
 	}
 
 	return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 
-const Email = ({ newEmail, setNewEmail,isEmailInputInvalid}) => {
+const Email = ({ newEmail, setNewEmail, isEmailInputInvalid }) => {
 	const handleEmailChange = (event) => {
 		event.preventDefault();
 		setNewEmail(event.target.value);
@@ -11,6 +11,7 @@ const Email = ({ newEmail, setNewEmail,isEmailInputInvalid}) => {
 		<div>
 			<label>
 				<FormattedMessage id="emailInputLabel" />
+				<br />
 				<input
 					type="text"
 					className="mail-input"

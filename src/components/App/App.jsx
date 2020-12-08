@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { IntlProvider } from "react-intl";
 import {
 	BrowserRouter as Router,
@@ -8,31 +8,55 @@ import {
 } from "react-router-dom";
 
 import "./style.css";
-import translations from "../../translations/translations.json";
+
 import QRCodeContext from "contexts/QRCodeContext";
+import translations from "../../translations/translations.json";
+
 import RegisterContainer from "components/Register/RegisterContainer";
 import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage";
 import SelectLanguage from "components/SharedComponents/SelectLanguage";
 import MedecinPageContainer from "components/Medecin/MedecinPage/MedecinPageContainer";
 import participantService from "services/ParticipantService.js";
+import Logout from "components/Logout/Logout";
 
 const App = () => {
-	const { language } = useContext(QRCodeContext);
+	const { language, role } = useContext(QRCodeContext);
 
+	const isDoctor = () => {
+		return role === "Doctor";
+	};
+
+	const isEstablishment = () => {
+		return role === "Establishment";
+	};
+
+	const redirectIfRoleKnown = () => {
+		if (isDoctor()) {
+			<Redirect to="/doctor" />;
+		} else if (isEstablishment()) {
+			<Redirect to="/establishment" />;
+		}
+	};
 	return (
 		<IntlProvider locale="fr" messages={translations[language]}>
 			<div className="app">
 				<div className="lang-selector">
 					<SelectLanguage />
 				</div>
+				{role !== "" ? <Logout /> : ""}
 				<Router>
+					{redirectIfRoleKnown()}
 					<Switch>
 						<Route path="/doctor">
+<<<<<<< HEAD
 							<MedecinPageContainer />
+=======
+							{isDoctor() ? <Doctor /> : <Redirect to="/" />}
+>>>>>>> 562840eca85082e61eb8bda896ff7a3ea064528e
 						</Route>
 						<Route path="/establishment">
-							<EstablishmentPage />
+							{isEstablishment() ? <EstablishmentPage /> : <Redirect to="/" />}
 						</Route>
 						<Route path="/register">
 							<RegisterContainer />

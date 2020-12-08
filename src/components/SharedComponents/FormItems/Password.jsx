@@ -4,7 +4,7 @@ const Password = ({
 	inputLabel,
 	newPassword,
 	setNewPassword,
-	isPasswordInputInvalid
+	isPasswordInputInvalid,
 }) => {
 	const handlePasswordChange = (event) => {
 		event.preventDefault();
@@ -15,6 +15,7 @@ const Password = ({
 		<div>
 			<label>
 				{inputLabel}
+				<br />
 				<input
 					type="text"
 					className="passwd-input"
@@ -22,7 +23,10 @@ const Password = ({
 					onChange={handlePasswordChange}
 					aria-required="true"
 					aria-invalid={isPasswordInputInvalid}
-				/>
+				/><br/>
+				<span className="help">
+				Entre 5 et 20 caractères
+				</span>
 			</label>
 		</div>
 	);

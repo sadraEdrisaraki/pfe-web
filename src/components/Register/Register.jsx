@@ -1,8 +1,8 @@
 import React from "react";
-import { FormattedMessage } from "react-intl";
-import "./style.css";
-
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
+
+import "./style.css";
 
 import Email from "components/SharedComponents/FormItems/Email";
 import Password from "components/SharedComponents/FormItems/Password";
@@ -31,7 +31,11 @@ const Register = ({
 				</h1>
 				<ErrorMessages errorMessage={errorMessage} />
 				<form onSubmit={handleAddParticipant}>
-					<Email newEmail={newEmail} setNewEmail={setNewEmail} isEmailInputInvalid={isEmailInputInvalid} />
+					<Email
+						newEmail={newEmail}
+						setNewEmail={setNewEmail}
+						isEmailInputInvalid={isEmailInputInvalid}
+					/>
 					<Password
 						inputLabel={<FormattedMessage id="passwordInputLabel" />}
 						newPassword={newPassword}
@@ -44,12 +48,9 @@ const Register = ({
 						setNewPassword={setPasswordConfirmed}
 						isPasswordInputInvalid={isPasswordConfirmedInputInvalid}
 					/>
-					<button className="btn-register" type="submit">
-						<FormattedMessage id="buttonSubmitRegisterFormLabel" />
-					</button>
 					<fieldset>
 						<legend>
-							<h4>Êtes-vous</h4>
+							<h4><FormattedMessage id="titleRadioButtonLabel" /></h4>
 						</legend>
 						<input
 							type="radio"
@@ -57,22 +58,25 @@ const Register = ({
 							checked={newRole === "Doctor"}
 							onChange={handleRoleChange}
 							name="role"
-						/>
-						<label>{<FormattedMessage id="doctorRadioButtonLabel" />}</label>
+						/>{" "}
+						<label>{<FormattedMessage id="doctorRadioButtonLabel" />}</label>{" "}
 						<input
 							type="radio"
 							value="Establishment"
 							checked={newRole === "Establishment"}
 							onChange={handleRoleChange}
 							name="role"
-						/>
+						/>{" "}
 						<label>
 							{<FormattedMessage id="establishmentRadioButtonLabel" />}
 						</label>
 					</fieldset>
+					<button className="btn-register btn-success" type="submit">
+						<FormattedMessage id="buttonSubmitRegisterFormLabel" />
+					</button>
 				</form>
 				<br />
-				<button type="submit">
+				<button className="btn-submit" type="submit">
 					<Link to="/">
 						<FormattedMessage id="buttonLoginLinkLabel" />
 					</Link>

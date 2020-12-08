@@ -1,12 +1,18 @@
 .login-page{
     position: relative;
-    height: 100%;
+    height: 80%;
     width: 100%;
-    
+
 }
 
 .login-container{
+    font-size: larger;
     text-align: center;
     height: 100%;
     transform: translateY(40%);
+}
+
+.help{
+    font-size:small;
+    color: rgb(61, 60, 60);
 }

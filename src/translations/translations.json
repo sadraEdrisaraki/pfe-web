@@ -14,15 +14,15 @@
     "nameInputLabel" :"Nom",
     "descriptionInputLabel":"Description",
     "buttonSubmitQRCodeFormLabel":"Créer code QR",
-    "languageOptionFrenchLabel":"Français",
-    "languageOptionEnglishLabel":"Anglais",
-    "languageOptionDutchLabel":"Néerlandais",
     "emailOrPasswordInvalidErrorMessage":"Email ou mot de passe invalide(s)",
     "passwordToConfirmInvalidErrorMessage":"Veuillez confirmer le mot de passe",
     "passwordAndPasswordToConfirmNoMatchErrorMessage":"Le mot de passe et le mot de passe à confirmer ne correspondent pas",
-    "formEmptyErrorMessage":"Veuillez compléter le formulaire",
     "generateQRCodeMenuLabel":"Générer un code QR",
-    "listQRCodesMenuLabel":"Mes codes QR"
+    "listQRCodesMenuLabel":"Mes codes QR",
+    "buttonLogoutLabel":"Se déconnecter",
+    "emailInvalidErrorMessage":"Veuillez indiquer un email",
+    "passwordInvalidErrorMessage":"Veuillez indiquer un mot de passe",
+    "titleRadioButtonLabel":"Êtes-vous"
 },
 "en":{
     "loginFormTitleLabel":"Login",
@@ -39,15 +39,15 @@
     "nameInputLabel" :"Name",
     "descriptionInputLabel":"Description",
     "buttonSubmitQRCodeFormLabel":"Create QR code",
-    "languageOptionFrenchLabel":"French",
-    "languageOptionEnglishLabel":"English",
-    "languageOptionDutchLabel":"Dutch",
     "emailOrPasswordInvalidErrorMessage":"Invalid email or password",
     "passwordToConfirmInvalidErrorMessage":"Please confirm the password",
     "passwordAndPasswordToConfirmNoMatchErrorMessage":"Password and confirmed password doesn't match",
-    "formEmptyErrorMessage":"Please fill the form",
     "generateQRCodeMenuLabel":"Generate a QR code",
-    "listQRCodesMenuLabel":"My QR codes"
+    "listQRCodesMenuLabel":"My QR codes",
+    "buttonLogoutLabel":"Logout",
+    "emailInvalidErrorMessage":"Please specify an email",
+    "passwordInvalidErrorMessage":"Please specify a password",
+    "titleRadioButtonLabel":"Are you"
 },
 "nl":{
     "loginFormTitleLabel":"Aanmelden",
@@ -64,14 +64,14 @@
     "nameInputLabel" :"Naam",
     "descriptionInputLabel":"Descriptie",
     "buttonSubmitQRCodeFormLabel":"QR-Code maken",
-    "languageOptionFrenchLabel":"Frans",
-    "languageOptionEnglishLabel":"Engels",
-    "languageOptionDutchLabel":"Nederlands",
     "emailOrPasswordInvalidErrorMessage":"Ongeldig e-mail en wachtwoord",
     "passwordToConfirmInvalidErrorMessage":"Alstublieft bevestig de wachtwoord",
     "passwordAndPasswordToConfirmNoMatchErrorMessage":"Wachtwoorden zijn niet gelijk",
-    "formEmptyErrorMessage":"Het formulier invullen",
     "generateQRCodeMenuLabel":"QR-Code maken",
-    "listQRCodesMenuLabel":"Mijn QR-Code"
+    "listQRCodesMenuLabel":"Mijn QR-Code",
+    "buttonLogoutLabel":"Uitloggen",
+    "emailInvalidErrorMessage":"Astublieft, geef een e-mail",
+    "passwordInvalidErrorMessage":"Astublieft, geef een wachtwoord",
+    "titleRadioButtonLabel":"Bent u"
 }
 }
