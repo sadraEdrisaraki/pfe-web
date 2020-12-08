@@ -11,10 +11,6 @@ const MedecinPage = ({createQR}) => {
         generateQRcodeIdMed
     } = useContext(QRCodeContext)
 
-    useEffect(() => {
-        generateQRcodeIdMed()
-    }, [])
-
     const handleClick = () => {
         createQR()
         generateQRcodeIdMed()

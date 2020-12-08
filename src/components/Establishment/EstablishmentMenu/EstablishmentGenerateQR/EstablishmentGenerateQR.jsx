@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react"
+import React, { useState, useRef, useContext } from "react"
 import { FormattedMessage } from "react-intl";
 import {v4 as uuidv4} from "uuid"
 import { useReactToPrint }  from "react-to-print"
@@ -21,10 +21,6 @@ const EstablishmentGenerateQR = () => {
         generateQRcodeIdEst,
         createQRcodeEst
     } = useContext(QRCodeContext)
-
-    useEffect(() => {
-        generateQRcodeIdEst()
-    }, [])
 
     const handleChangeName = (event) => {
         setName(event.target.value)

@@ -29,7 +29,10 @@ const ProviderWrapper = (props) => {
 		});
 	};
 
-	//useEffect(initialLoad, []);
+	useEffect(() => {
+		generateQRcodeIdMed()
+		generateQRcodeIdEst()
+	}, []);
 
 	const getAllQR = () => {
 		return listeItems;
@@ -98,6 +101,7 @@ const ProviderWrapper = (props) => {
 		generateQRcodeIdEst, 
 		codeIdMed,
 		setLoggedIn,
+		initialLoad
 	}
 	return (
 		<Context.Provider value={exposedValue}>{props.children}</Context.Provider>

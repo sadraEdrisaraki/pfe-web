@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import QRCode from "qrcode-react"
 
 class QRcodeItemEst extends React.Component{
@@ -18,7 +18,7 @@ class QRcodeItemEst extends React.Component{
         }
         else{
             return(<div>
-                
+
             </div>)
         }
         

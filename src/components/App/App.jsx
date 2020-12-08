@@ -49,11 +49,7 @@ const App = () => {
 					{redirectIfRoleKnown()}
 					<Switch>
 						<Route path="/doctor">
-<<<<<<< HEAD
-							<MedecinPageContainer />
-=======
-							{isDoctor() ? <Doctor /> : <Redirect to="/" />}
->>>>>>> 562840eca85082e61eb8bda896ff7a3ea064528e
+							{isDoctor() ? <MedecinPageContainer /> : <Redirect to="/" />}
 						</Route>
 						<Route path="/establishment">
 							{isEstablishment() ? <EstablishmentPage /> : <Redirect to="/" />}

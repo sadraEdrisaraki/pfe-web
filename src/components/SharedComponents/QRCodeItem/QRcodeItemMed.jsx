@@ -1,9 +1,12 @@
-import React, { Component } from "react"
+import React from "react"
 import QRCode from "qrcode-react"
 
 class QRcodeItemMed extends React.Component{
 
+    
+
     render(){
+
         if(localStorage.getItem("qr_id_med") !== undefined){
             return(
                 <div>
@@ -16,6 +19,7 @@ class QRcodeItemMed extends React.Component{
             )
         }
         else{
+            console.log("hello from class , no localstorage" + localStorage.getItem("qr_id_med"))
             return(<div>
 
             </div>)
