@@ -15,10 +15,27 @@ import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage";
 import SelectLanguage from "components/SharedComponents/SelectLanguage";
 import Doctor from "components/Doctor/Doctor";
-import participantService from "services/ParticipantService.js";
 
 const App = () => {
-	const { language } = useContext(QRCodeContext);
+	const { language,role} = useContext(QRCodeContext);
+
+	const isDoctor = () => {
+		console.log("doctor?",)
+		return role==="Doctor"
+	}
+
+	const isEstablishment = () => {
+		console.log("Est?")
+		return role==="Establishment"
+	}
+
+	const redirectIfRoleKnown = () => {
+		if (isDoctor()) {
+			<Redirect to="/doctor" />
+		} else if (isEstablishment()) {
+			<Redirect to="/establishment" />
+		}
+	}
 
 	return (
 		<IntlProvider locale="fr" messages={translations[language]}>
@@ -27,12 +44,13 @@ const App = () => {
 					<SelectLanguage />
 				</div>
 				<Router>
+					{redirectIfRoleKnown()}
 					<Switch>
 						<Route path="/doctor">
-							<Doctor />
+						{isDoctor() ? <Doctor /> : <Redirect to="/" />}	
 						</Route>
 						<Route path="/establishment">
-							<EstablishmentPage />
+						{isEstablishment() ? <EstablishmentPage /> : <Redirect to="/" />}	
 						</Route>
 						<Route path="/register">
 							<RegisterContainer />

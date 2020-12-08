@@ -1,7 +1,5 @@
-import React, { useContext,useEffect, useState } from "react";
-import {
-	Redirect,
-} from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 import { handleErrorResponse } from "../../utils/SharedFunctions";
 
 import QRCodeContext from "contexts/QRCodeContext";
@@ -21,15 +19,14 @@ const RegisterContainer = () => {
 		setIsPasswordConfirmedInputInvalid,
 	] = useState(false);
 	const [errorMessage, setErrorMessage] = useState("");
-	const [loggedIn, setLoggedIn] = useState(false);
-	const { role, getRole } = useContext(QRCodeContext);
-	
+	const { setLoggedIn, role } = useContext(QRCodeContext);
+
 	const clearFormInputs = () => {
 		setNewRole("Doctor");
 		setNewEmail("");
 		setNewPassword("");
 		setPasswordConfirmed("");
-	}
+	};
 
 	const clearErrorMessages = () => {
 		setErrorMessage("");
@@ -40,7 +37,7 @@ const RegisterContainer = () => {
 
 	const saveToken = (response) => {
 		localStorage.setItem("token", response);
-		setLoggedIn(true)
+		setLoggedIn(true);
 		clearFormInputs();
 	};
 
@@ -81,25 +78,21 @@ const RegisterContainer = () => {
 		console.log("role change:", event.target.value);
 		setNewRole(event.target.value);
 	};
-	
+
 	useEffect(() => {
 		console.log("effect");
 		const clearNotification = () => clearErrorMessages();
-		const handler = setTimeout(clearNotification,5000);
+		const handler = setTimeout(clearNotification, 5000);
 		const abortHandler = () => clearTimeout(handler);
 		return abortHandler;
-	},[errorMessage]);
+	}, [errorMessage]);
 
-	if (loggedIn) {
-		getRole();
-		console.log("role", role);
-		if (role === "Doctor") {
-			console.log("redirigé => doctor");
-			return <Redirect to="/doctor" />;
-		} else if (role === "Establishment") {
-			console.log("redirigé => establishment");
-			return <Redirect to="/establishment" />;
-		}
+	if (role === "Doctor") {
+		console.log("redirigé => doctor");
+		return <Redirect to="/doctor" />;
+	} else if (role === "Establishment") {
+		console.log("redirigé => establishment");
+		return <Redirect to="/establishment" />;
 	}
 
 	return (

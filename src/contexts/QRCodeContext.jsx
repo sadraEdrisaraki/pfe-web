@@ -7,6 +7,7 @@ const Context = React.createContext(null);
 
 const ProviderWrapper = (props) => {
 	const [language, setLanguage] = useState("fr");
+	const [loggedIn, setLoggedIn] = useState(false);
 	const [role, setRole] = useState("");
 	const [listeItems, setListeItems] = useState([]);
 
@@ -14,9 +15,11 @@ const ProviderWrapper = (props) => {
 		participantService
 			.getRoleByToken()
 			.then((response) => setRole(response.role))
-			.catch((error) => console.log(error));
+			.catch((error) => setRole(""));
 	};
 	
+	useEffect(getRole,[loggedIn])
+
 	const initialLoad = () => {
 		
 		QRCodeService
@@ -51,7 +54,7 @@ const ProviderWrapper = (props) => {
 			});
 	};
 
-	const exposedValue = { language, setLanguage,role,getRole, getAllQR, createQRcode };
+	const exposedValue = { language, setLanguage,setLoggedIn,role,getAllQR, createQRcode };
 	return (
 		<Context.Provider value={exposedValue}>{props.children}</Context.Provider>
 	);
