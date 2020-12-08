@@ -1,16 +1,22 @@
-.medecin-page-container{
-    background-color: white;
-    position: absolute;
-    top: 0px;
-    left:0px;
-    height: 100%;
-    width: 100%;
+.medecin-page-container {
+	background-color: white;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 100%;
 }
 
-.qrcode-generated-med{
-    position: relative;
-    left: 50%;
-    transform: translateX(-194px);
-    top: 10%;
+.qrcode-generated-med {
+	position: relative;
+	left: 50%;
+	transform: translateX(-194px);
+	top: 10%;
     cursor: pointer;
+}
+
+.btn-sub {
+    position: relative;
+    left:6%;
+    top:5%;
 }

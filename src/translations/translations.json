@@ -24,7 +24,8 @@
     "passwordInvalidErrorMessage":"Veuillez indiquer un mot de passe",
     "titleRadioButtonLabel":"Êtes-vous",
     "buttonSearchQRCodeLabel":"Rechercher : ",
-    "passwordInputHelpLabel":"Entre 5 et 20 caractères"
+    "passwordInputHelpLabel":"Entre 5 et 20 caractères",
+    "buttonCreateQRCodeDoctorLabel":"Générer un code QR"
 },
 "en":{
     "loginFormTitleLabel":"Login",
@@ -51,7 +52,8 @@
     "passwordInvalidErrorMessage":"Please specify a password",
     "titleRadioButtonLabel":"Are you",
     "buttonSearchQRCodeLabel":"Search : ",
-    "passwordInputHelpLabel":"Between 5 and 20 caracters"
+    "passwordInputHelpLabel":"Between 5 and 20 caracters",
+    "buttonCreateQRCodeDoctorLabel":"Generate a QR code"
 },
 "nl":{
     "loginFormTitleLabel":"Aanmelden",
@@ -78,6 +80,7 @@
     "passwordInvalidErrorMessage":"Astublieft, geef een wachtwoord",
     "titleRadioButtonLabel":"Bent u",
     "buttonSearchQRCodeLabel":"Zoek : ",
-    "passwordInputHelpLabel":"Tussen 5 en 20 tekens"
+    "passwordInputHelpLabel":"Tussen 5 en 20 tekens",
+    "buttonCreateQRCodeDoctorLabel":"QR-Code maken"
 }
 }
