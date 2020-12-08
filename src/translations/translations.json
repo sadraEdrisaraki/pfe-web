@@ -19,7 +19,8 @@
     "passwordAndPasswordToConfirmNoMatchErrorMessage":"Le mot de passe et le mot de passe à confirmer ne correspondent pas",
     "formEmptyErrorMessage":"Veuillez compléter le formulaire",
     "generateQRCodeMenuLabel":"Générer un code QR",
-    "listQRCodesMenuLabel":"Mes codes QR"
+    "listQRCodesMenuLabel":"Mes codes QR",
+    "buttonLogoutLabel":"Se déconnecter"
 },
 "en":{
     "loginFormTitleLabel":"Login",
@@ -41,7 +42,8 @@
     "passwordAndPasswordToConfirmNoMatchErrorMessage":"Password and confirmed password doesn't match",
     "formEmptyErrorMessage":"Please fill the form",
     "generateQRCodeMenuLabel":"Generate a QR code",
-    "listQRCodesMenuLabel":"My QR codes"
+    "listQRCodesMenuLabel":"My QR codes",
+    "buttonLogoutLabel":"Logout"
 },
 "nl":{
     "loginFormTitleLabel":"Aanmelden",
@@ -63,6 +65,7 @@
     "passwordAndPasswordToConfirmNoMatchErrorMessage":"Wachtwoorden zijn niet gelijk",
     "formEmptyErrorMessage":"Het formulier invullen",
     "generateQRCodeMenuLabel":"QR-Code maken",
-    "listQRCodesMenuLabel":"Mijn QR-Code"
+    "listQRCodesMenuLabel":"Mijn QR-Code",
+    "buttonLogoutLabel":"Uitloggen"
 }
 }

@@ -15,17 +15,16 @@ import LoginContainer from "components/Login/LoginContainer";
 import EstablishmentPage from "components/Establishment/EstablishmentPage/EstablishmentPage";
 import SelectLanguage from "components/SharedComponents/SelectLanguage";
 import Doctor from "components/Doctor/Doctor";
+import Logout from "components/Logout/Logout"
 
 const App = () => {
 	const { language,role} = useContext(QRCodeContext);
 
 	const isDoctor = () => {
-		console.log("doctor?",)
 		return role==="Doctor"
 	}
 
 	const isEstablishment = () => {
-		console.log("Est?")
 		return role==="Establishment"
 	}
 
@@ -42,6 +41,7 @@ const App = () => {
 			<div className="app">
 				<div className="lang-selector">
 					<SelectLanguage />
+					<Logout/>
 				</div>
 				<Router>
 					{redirectIfRoleKnown()}
