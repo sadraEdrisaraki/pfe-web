@@ -16,7 +16,7 @@ const register = (newObject) => {
 };
 
 const getRoleByToken = () => {
-	const request = axios.get(getRoleAPI,{headers: {"Authorization" : 'Bearer '+ localStorage.getItem("token")}});
+	const request = axios.get(getRoleAPI,{headers: {"Authorization" : 'Bearer ' +localStorage.getItem("token")}});
 	return request.then((response) => response.data);
 };
 

@@ -20,6 +20,8 @@ import Logout from "components/Logout/Logout"
 const App = () => {
 	const { language,role} = useContext(QRCodeContext);
 
+	console.log("role", role)
+	
 	const isDoctor = () => {
 		return role==="Doctor"
 	}
@@ -41,7 +43,7 @@ const App = () => {
 			<div className="app">
 				<div className="lang-selector">
 					<SelectLanguage />
-					<Logout/>
+					{ role!=="" ? <Logout /> :""}
 				</div>
 				<Router>
 					{redirectIfRoleKnown()}
