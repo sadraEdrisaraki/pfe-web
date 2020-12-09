@@ -1,32 +1,32 @@
 import React from "react"
 import QRCode from "qrcode-react"
 
-class QRcodeItemMed extends React.Component{
+class QRcodeHistory extends React.Component{
 
     constructor(props){
         super(props)
+        
     }
-
+    
     render(){
-        console.log(this.props)
-        if(localStorage.getItem("qr_id_med") !== undefined){
+        if(localStorage.getItem("qr_id_est") !== undefined){
             return(
                 <div>
                     <QRCode  
                         includeMargin="true" 
-                        value={localStorage.getItem("qr_id_med")}
-                        size="384"
+                        value={this.props.id}
+                        size={this.props.size}
                         />
                 </div>
             )
         }
         else{
-            console.log("hello from class , no localstorage" + localStorage.getItem("qr_id_med"))
             return(<div>
 
             </div>)
         }
+        
     }
 }
 
-export default QRcodeItemMed
+export default QRcodeHistory

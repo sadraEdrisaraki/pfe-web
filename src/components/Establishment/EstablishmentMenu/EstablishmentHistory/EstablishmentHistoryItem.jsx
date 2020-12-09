@@ -1,20 +1,32 @@
-import React from "react"
-import QRCode from "qrcode-react"
+import React, {useRef, useState} from "react"
+import { useReactToPrint } from "react-to-print"
+import QRcodeHitory from "components/SharedComponents/QRCodeItem/QRcodeHistory"
 
 const EstablishmentHistoryItem = ({id , name , description}) => {
 
+    const [size , setSize] = useState(128)
+
     const handleClick = () => {
         console.log(id)
+        handlePrint()
     }
+
+    const componentRef = useRef();
+
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        onBeforeGetContent(){
+            setSize(384)
+        },
+        onAfterPrint() {
+            setSize(128)
+        }
+    })
 
     return (
         <div className="item-container" onClick={handleClick}>
             <div className="item-qr">
-                <QRCode  
-                    includeMargin="true" 
-                    value={id}
-                    size="128"
-                />
+                <QRcodeHitory id={id} ref={componentRef} size={size}/>
             </div>
             <h4 className="item-name">
                 {name}

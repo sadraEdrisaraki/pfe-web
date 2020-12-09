@@ -25,7 +25,7 @@ const MedecinPage = ({createQR}) => {
     return (
         <div className="medecin-page-container">
             <div className="qrcode-generated-med" onClick={handleClick}>
-                <QRcodeItemMed ref={componentRef}/>
+                <QRcodeItemMed ref={componentRef} data="salut"/>
             </div>
         </div>
     )
