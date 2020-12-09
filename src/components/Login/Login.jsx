@@ -23,7 +23,7 @@ const Login = ({
 			<div className="login-container">
 				<h1>
 					<FormattedMessage id="loginFormTitleLabel" />
-				</h1>
+					</h1>
 				<ErrorMessage errorMessage={errorMessage} />
 				<form>
 					<Email

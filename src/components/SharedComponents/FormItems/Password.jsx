@@ -24,8 +24,9 @@ const Password = ({
 					onChange={handlePasswordChange}
 					aria-required="true"
 					aria-invalid={isPasswordInputInvalid}
+					aria-describedby="helpText"
 				/><br/>
-				<span className="help">
+				<span id="helpText" className="help">
 				<FormattedMessage id="passwordInputHelpLabel" />
 				</span>
 			</label>
