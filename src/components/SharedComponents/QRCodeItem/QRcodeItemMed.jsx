@@ -3,12 +3,7 @@ import QRCode from "qrcode-react"
 
 class QRcodeItemMed extends React.Component{
 
-    constructor(props){
-        super(props)
-    }
-
     render(){
-        console.log(this.props)
         if(localStorage.getItem("qr_id_med") !== undefined){
             return(
                 <div>
