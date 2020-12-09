@@ -1,18 +1,39 @@
 .login-page{
     position: relative;
-    height: 80%;
+    height: 100%;
     width: 100%;
 
 }
 
 .login-container{
+    position: relative;
     font-size: larger;
     text-align: center;
-    height: 100%;
-    transform: translateY(40%);
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #7e8ba3;
+    background-color: #354152;
+    box-shadow: 0 0 250px #000;
+    width: fit-content;
+    left: 50%;
+    padding: 30px;
 }
 
 .help{
     font-size:small;
     color: rgb(61, 60, 60);
+}
+
+input{
+    border: 1px solid #242c37;
+    border-radius: 999px;
+    background-color: transparent;
+}
+
+.btn-submit, .btn-success{
+    background-image: linear-gradient(160deg, #8ceabb 0%, #378f7b 100%);
+    color: #fff;
+    width: 100%;
+    border: 1px solid #242c37;
+    border-radius: 999px;
 }

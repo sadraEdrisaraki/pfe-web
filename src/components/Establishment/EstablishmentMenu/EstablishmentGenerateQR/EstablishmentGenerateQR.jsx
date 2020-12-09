@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react"
+import React, { useState, useRef, useContext, useEffect } from "react"
 import { FormattedMessage } from "react-intl";
 import {v4 as uuidv4} from "uuid"
 import { useReactToPrint }  from "react-to-print"
@@ -13,14 +13,20 @@ import QRCodeContext from "contexts/QRCodeContext"
 const EstablishmentGenerateQR = () => {
 
 
-
+    const [id , setId] = useState("")
     const [name , setName] = useState("")
     const [description , setDescription] = useState("")
 
+    useEffect(() => {
+        let tempId = uuidv4()
+        setId(tempId)
+    }, [])
+
     const{
-        generateQRcodeIdEst,
         createQRcodeEst
     } = useContext(QRCodeContext)
+
+
 
     const handleChangeName = (event) => {
         setName(event.target.value)
@@ -31,12 +37,12 @@ const EstablishmentGenerateQR = () => {
     }
 
     const handleClick = () => {
-        createQRcodeEst(name,description)
-        generateQRcodeIdEst()
+        createQRcodeEst(id, name,description)
+        handlePrint()
+        let tempId = uuidv4()
+        setId(tempId)
         setName("")
         setDescription("")
-        handlePrint()
-        
     }
 
     const componentRef = useRef();
@@ -47,7 +53,7 @@ const EstablishmentGenerateQR = () => {
     return (
         <div className="generate-form-container">
             <div className="qrcode-generated" onClick={handleClick} onMouseOver={qrOverAnimation} onMouseOut={qrOutAnimation}>
-                <QRcodeItemEst ref={componentRef}/>
+                <QRcodeItemEst ref={componentRef} id={id}/>
             </div>
             
             <div className="form-container">

@@ -4,7 +4,7 @@ import QRcodeHitory from "components/SharedComponents/QRCodeItem/QRcodeHistory"
 
 const EstablishmentHistoryItem = ({id , name , description}) => {
 
-    const [size , setSize] = useState(128)
+    const [size , setSize] = useState(256)
 
     const handleClick = () => {
         console.log(id)
@@ -15,12 +15,6 @@ const EstablishmentHistoryItem = ({id , name , description}) => {
 
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
-        onBeforeGetContent(){
-            setSize(384)
-        },
-        onAfterPrint() {
-            setSize(128)
-        }
     })
 
     return (
@@ -35,6 +29,7 @@ const EstablishmentHistoryItem = ({id , name , description}) => {
                 {description}
             </p> 
         </div>
+        
     )
 }
 

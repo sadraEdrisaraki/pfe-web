@@ -42,7 +42,7 @@ const Login = ({
 					</button>
 				</form>
 				<br />
-				<button className="btn-submit" type="submit">
+				<button className="btn-submit">
 					<Link to="/register">
 						<FormattedMessage id="buttonRegisterLinkLabel" />
 					</Link>

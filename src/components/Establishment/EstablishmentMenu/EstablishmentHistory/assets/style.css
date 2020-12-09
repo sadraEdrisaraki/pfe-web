@@ -17,14 +17,14 @@
 
 .item-container{
     position: relative;
-    left:0px;
+    left:20%;
     transform: translateX(-50%);
     margin-top: 100px;
     cursor: pointer;
     width: fit-content;
     transition: 0.5s;
     display: inline-block;
-    margin-left: 25%;
+    margin-left: 15%;
 }
 
 .item-container:hover{

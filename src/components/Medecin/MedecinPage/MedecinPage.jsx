@@ -1,6 +1,7 @@
 import React, {useRef, useState, useEffect, useContext} from "react"
 import { useReactToPrint } from "react-to-print"
 import { FormattedMessage } from "react-intl";
+import {v4 as uuidv4} from "uuid"
 
 import "./assets/style.css"
 
@@ -8,16 +9,24 @@ import QRCodeContext from "contexts/QRCodeContext"
 
 import QRcodeItemMed from "components/SharedComponents/QRCodeItem/QRcodeItemMed"
 
-const MedecinPage = ({createQR}) => {
+const MedecinPage = () => {
+
+    const [id, setId] = useState("")
 
     const{
-        generateQRcodeIdMed
+        createQRcodeMed
     } = useContext(QRCodeContext)
 
+    useEffect(() => {
+        let idTemp = uuidv4()
+        setId(idTemp)
+    }, [])
+
     const handleClick = () => {
-        createQR()
-        generateQRcodeIdMed()
+        createQRcodeMed(id)
         handlePrint()
+        let idTemp = uuidv4()
+        setId(idTemp)
     }
 
     const componentRef = useRef();
@@ -28,7 +37,7 @@ const MedecinPage = ({createQR}) => {
     return (
         <div className="medecin-page-container">
             <div className="qrcode-generated-med" onClick={handleClick}>
-                <QRcodeItemMed ref={componentRef} />
+                <QRcodeItemMed ref={componentRef} id={id}/>
             </div>
             <button className="btn-sub" onClick={handleClick}><FormattedMessage id="buttonCreateQRCodeDoctorLabel" /></button>
             </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
+import "./assets/style.css"
 
 const Email = ({ newEmail, setNewEmail, isEmailInputInvalid }) => {
 	const handleEmailChange = (event) => {

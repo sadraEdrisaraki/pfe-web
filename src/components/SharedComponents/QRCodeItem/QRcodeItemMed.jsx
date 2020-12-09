@@ -3,13 +3,17 @@ import QRCode from "qrcode-react"
 
 class QRcodeItemMed extends React.Component{
 
+    constructor(props){
+        super(props)
+    }
+
     render(){
         if(localStorage.getItem("qr_id_med") !== undefined){
             return(
                 <div>
                     <QRCode  
                         includeMargin="true" 
-                        value={localStorage.getItem("qr_id_med")}
+                        value={this.props.id}
                         size="384"
                         />
                 </div>

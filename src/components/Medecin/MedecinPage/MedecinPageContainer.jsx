@@ -5,18 +5,9 @@ import QRCodeContext from "contexts/QRCodeContext"
 
 const MedecinPageContainer = () => {
 
-    const {
-        createQRcodeMed
-    } = useContext(QRCodeContext)
-
-    const createQR = () => {
-        createQRcodeMed()
-    }
 
     return(
-        <MedecinPage 
-            createQR={createQR} 
-        />
+        <MedecinPage/>
     )
 }
 

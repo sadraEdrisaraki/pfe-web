@@ -10,8 +10,6 @@ const ProviderWrapper = (props) => {
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [role, setRole] = useState("");
 	const [listeItems, setListeItems] = useState([]);
-	const [codeIdMed , setcodeIdMed] = useState("")
-	const [codeIdEst , setcodeIdEst] = useState("")
 
 	const getRole = () => {
 		participantService
@@ -29,18 +27,13 @@ const ProviderWrapper = (props) => {
 		});
 	};
 
-	useEffect(() => {
-		generateQRcodeIdMed()
-		generateQRcodeIdEst()
-	}, []);
-
 	const getAllQR = () => {
 		return listeItems;
 	};
 
-	const createQRcodeMed = () => {
-		console.log("création du qr code avec l'id " + codeIdMed)
-		QRCodeService.create({ qrCodeID: codeIdMed})
+	const createQRcodeMed = (id) => {
+		console.log("création du qr code avec l'id " + id)
+		QRCodeService.create({ qrCodeID: id})
 			.then((response) => {
 				console.log("creation réussi");
 				console.log(response)
@@ -56,10 +49,10 @@ const ProviderWrapper = (props) => {
 			});
 	};
 
-	const createQRcodeEst = (name, desc) => {
-		console.log("création du qr code avec l'id " + codeIdEst)
+	const createQRcodeEst = (id, name, desc) => {
+		console.log("création du qr code avec l'id " + id)
 
-		QRCodeService.create({ qrCodeID: codeIdEst, name: name, description: desc })
+		QRCodeService.create({ qrCodeID: id, name: name, description: desc })
 			.then((response) => {
 				console.log("creation réussi");
 				console.log(response);
@@ -75,20 +68,6 @@ const ProviderWrapper = (props) => {
 			});
 	};
 
-	const generateQRcodeIdMed = () => {
-		let tempId = uuidv4()
-		setcodeIdMed(tempId)
-		localStorage.setItem("qr_id_med" , tempId)
-		console.log("localstorage = " + localStorage.getItem("qr_id_med"))
-	}
-
-	const generateQRcodeIdEst = () => {
-		let tempId = uuidv4()
-		setcodeIdEst(tempId)
-		localStorage.setItem("qr_id_est" , tempId)
-		console.log("localstorage = " + localStorage.getItem("qr_id_est"))
-	}
-
 	const exposedValue = { 
 		language, 
 		setLanguage, 
@@ -97,9 +76,6 @@ const ProviderWrapper = (props) => {
 		getAllQR, 
 		createQRcodeMed,
 		createQRcodeEst, 
-		generateQRcodeIdMed, 
-		generateQRcodeIdEst, 
-		codeIdMed,
 		setLoggedIn,
 		initialLoad
 	}
