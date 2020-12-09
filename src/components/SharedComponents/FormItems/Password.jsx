@@ -18,7 +18,7 @@ const Password = ({
 				{inputLabel}
 				<br />
 				<input
-					type="text"
+					type="password"
 					className="passwd-input"
 					value={newPassword}
 					onChange={handlePasswordChange}
