@@ -25,7 +25,8 @@
     "titleRadioButtonLabel":"Êtes-vous",
     "buttonSearchQRCodeLabel":"Rechercher : ",
     "passwordInputHelpLabel":"Entre 5 et 20 caractères",
-    "buttonCreateQRCodeDoctorLabel":"Générer un code QR"
+    "buttonCreateQRCodeDoctorLabel":"Générer un code QR",
+    "selectLanguageLabel":"Choix langue"
 },
 "en":{
     "loginFormTitleLabel":"Login",
@@ -53,7 +54,8 @@
     "titleRadioButtonLabel":"Are you",
     "buttonSearchQRCodeLabel":"Search : ",
     "passwordInputHelpLabel":"Between 5 and 20 caracters",
-    "buttonCreateQRCodeDoctorLabel":"Generate a QR code"
+    "buttonCreateQRCodeDoctorLabel":"Generate a QR code",
+    "selectLanguageLabel":"Choose language"
 },
 "nl":{
     "loginFormTitleLabel":"Aanmelden",
@@ -81,6 +83,7 @@
     "titleRadioButtonLabel":"Bent u",
     "buttonSearchQRCodeLabel":"Zoek : ",
     "passwordInputHelpLabel":"Tussen 5 en 20 tekens",
-    "buttonCreateQRCodeDoctorLabel":"QR-Code maken"
+    "buttonCreateQRCodeDoctorLabel":"QR-Code maken",
+    "selectLanguageLabel":"Taal kiezen"
 }
 }

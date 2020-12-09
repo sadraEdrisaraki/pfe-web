@@ -29,9 +29,9 @@ const MedecinPage = ({createQR}) => {
         <div className="medecin-page-container">
             <div className="qrcode-generated-med" onClick={handleClick}>
                 <QRcodeItemMed ref={componentRef} />
-                <button className="btn-sub" type="submit" onClick={handleClick}><FormattedMessage id="buttonCreateQRCodeDoctorLabel" /></button>
             </div>
-        </div>
+            <button className="btn-sub" onClick={handleClick}><FormattedMessage id="buttonCreateQRCodeDoctorLabel" /></button>
+            </div>
     )
 }
 

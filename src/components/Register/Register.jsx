@@ -50,24 +50,30 @@ const Register = ({
 					/>
 					<fieldset>
 						<legend>
-							<h4><FormattedMessage id="titleRadioButtonLabel" /></h4>
+							<h4>
+								<FormattedMessage id="titleRadioButtonLabel" />
+							</h4>
 						</legend>
 						<input
 							type="radio"
+							aria-describedby="doctorLabel"
 							value="Doctor"
 							checked={newRole === "Doctor"}
 							onChange={handleRoleChange}
 							name="role"
 						/>{" "}
-						<label>{<FormattedMessage id="doctorRadioButtonLabel" />}</label>{" "}
+						<label id="doctorLabel">
+							{<FormattedMessage id="doctorRadioButtonLabel" />}
+						</label>{" "}
 						<input
 							type="radio"
+							aria-describedby="establishmentLabel"
 							value="Establishment"
 							checked={newRole === "Establishment"}
 							onChange={handleRoleChange}
 							name="role"
 						/>{" "}
-						<label>
+						<label id="establishmentLabel">
 							{<FormattedMessage id="establishmentRadioButtonLabel" />}
 						</label>
 					</fieldset>

@@ -82,7 +82,7 @@ const RegisterContainer = () => {
 	useEffect(() => {
 		console.log("effect");
 		const clearNotification = () => clearErrorMessages();
-		const handler = setTimeout(clearNotification, 5000);
+		const handler = setTimeout(clearNotification, 10000);
 		const abortHandler = () => clearTimeout(handler);
 		return abortHandler;
 	}, [errorMessage]);
