@@ -1,5 +1,5 @@
 const expected = true
-const actual = true;
+const actual = false;
 
 test("dumb test", () => {
     expect(actual).toBe(expected)
