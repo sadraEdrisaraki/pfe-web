@@ -44,6 +44,9 @@ const App = () => {
 				<div className="lang-selector">
 					<SelectLanguage />
 				</div>
+				<div className="logo">
+					<h1>BlockCovid</h1>
+				</div>
 				{role !== "" ? <Logout /> : ""}
 				<Router>
 					{redirectIfRoleKnown()}

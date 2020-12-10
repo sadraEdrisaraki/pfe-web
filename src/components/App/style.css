@@ -31,3 +31,11 @@ body {
 .hidden {
 	visibility: hidden;
 }
+
+.logo{
+	position: absolute;
+	top: 1%;
+	left: 1%;
+	color: #49A288;
+	z-index: 2;
+}
