@@ -39,15 +39,17 @@ const EstablishmentGenerateQR = () => {
     const handleClick = () => {
         createQRcodeEst(id, name,description)
         handlePrint()
-        let tempId = uuidv4()
-        setId(tempId)
-        setName("")
-        setDescription("")
     }
 
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
+        onAfterPrint: () => {
+            let idTemp = uuidv4()
+            setId(idTemp)
+            setName("")
+            setDescription("")
+        }
     })
 
     return (

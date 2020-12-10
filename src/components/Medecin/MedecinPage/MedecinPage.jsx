@@ -25,13 +25,15 @@ const MedecinPage = () => {
     const handleClick = () => {
         createQRcodeMed(id)
         handlePrint()
-        let idTemp = uuidv4()
-        setId(idTemp)
     }
 
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
+        onAfterPrint: () => {
+            let idTemp = uuidv4()
+            setId(idTemp)
+        }
     })
 
     return (
